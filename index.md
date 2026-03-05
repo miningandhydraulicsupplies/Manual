@@ -125,33 +125,15 @@ The sidebar navigation is organized into sections:
 - Weekly Reports
 - Customers
 
-## Documentation
+## Next Steps
 
-```{toctree}
-:maxdepth: 2
-:caption: Getting Started
-
-quick-start
-```
-
-```{toctree}
-:maxdepth: 2
-:caption: Operations
-
-order-management
-order-board
-label-printing
-calibration-tracking
-production-monitoring
-inventory-management
-```
-
-```{toctree}
-:maxdepth: 2
-:caption: System Administration
-
-administration
-```
+- [Order Management](order-management.md) - Learn about order monitoring and management
+- [Order Board](order-board.md) - Collaborative procurement board usage
+- [Label Printing](label-printing.md) - Print labels for various purposes
+- [Calibration Tracking](calibration-tracking.md) - Manage equipment calibration
+- [Production Monitoring](production-monitoring.md) - Track production orders
+- [Inventory Management](inventory-management.md) - Stocktakes and inventory control
+- [Administration](administration.md) - System configuration and user management
 
 ## Support
 
