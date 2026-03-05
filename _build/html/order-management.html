@@ -1,0 +1,634 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Management &mdash; MHS Warehouse Management System 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MHS Warehouse Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Order Management</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#order-monitoring-dashboard">Order Monitoring Dashboard</a><ul>
+<li><a class="reference internal" href="#accessing-order-monitor">Accessing Order Monitor</a></li>
+<li><a class="reference internal" href="#dashboard-metrics">Dashboard Metrics</a></li>
+<li><a class="reference internal" href="#order-list-view">Order List View</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#order-details">Order Details</a><ul>
+<li><a class="reference internal" href="#viewing-order-details">Viewing Order Details</a></li>
+<li><a class="reference internal" href="#line-item-information">Line Item Information</a></li>
+<li><a class="reference internal" href="#order-status-indicators">Order Status Indicators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#backorder-management">Backorder Management</a><ul>
+<li><a class="reference internal" href="#identifying-backorders">Identifying Backorders</a></li>
+<li><a class="reference internal" href="#backorder-information">Backorder Information</a></li>
+<li><a class="reference internal" href="#backorder-alerts">Backorder Alerts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#urgent-orders">Urgent Orders</a><ul>
+<li><a class="reference internal" href="#marking-orders-as-urgent">Marking Orders as Urgent</a></li>
+<li><a class="reference internal" href="#urgent-order-handling">Urgent Order Handling</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#order-filtering-and-search">Order Filtering and Search</a><ul>
+<li><a class="reference internal" href="#filter-options">Filter Options</a></li>
+<li><a class="reference internal" href="#search-functionality">Search Functionality</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#my-orders-sales-users">My Orders (Sales Users)</a><ul>
+<li><a class="reference internal" href="#personal-order-dashboard">Personal Order Dashboard</a></li>
+<li><a class="reference internal" href="#my-orders-metrics">My Orders Metrics</a></li>
+<li><a class="reference internal" href="#order-history">Order History</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#order-alerts">Order Alerts</a><ul>
+<li><a class="reference internal" href="#alert-configuration">Alert Configuration</a></li>
+<li><a class="reference internal" href="#alert-preferences">Alert Preferences</a></li>
+<li><a class="reference internal" href="#managing-alerts">Managing Alerts</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#order-notes">Order Notes</a><ul>
+<li><a class="reference internal" href="#adding-notes">Adding Notes</a></li>
+<li><a class="reference internal" href="#note-types">Note Types</a></li>
+<li><a class="reference internal" href="#note-history">Note History</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#order-watchlist">Order Watchlist</a><ul>
+<li><a class="reference internal" href="#adding-to-watchlist">Adding to Watchlist</a></li>
+<li><a class="reference internal" href="#watchlist-features">Watchlist Features</a></li>
+<li><a class="reference internal" href="#managing-watchlist">Managing Watchlist</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tv-display-mode">TV Display Mode</a><ul>
+<li><a class="reference internal" href="#accessing-tv-display">Accessing TV Display</a></li>
+<li><a class="reference internal" href="#tv-display-features">TV Display Features</a></li>
+<li><a class="reference internal" href="#tv-display-configuration">TV Display Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integration-with-other-modules">Integration with Other Modules</a><ul>
+<li><a class="reference internal" href="#grn-monitoring">GRN Monitoring</a></li>
+<li><a class="reference internal" href="#order-board">Order Board</a></li>
+<li><a class="reference internal" href="#counter-collect">Counter Collect</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reporting">Reporting</a><ul>
+<li><a class="reference internal" href="#available-reports">Available Reports</a></li>
+<li><a class="reference internal" href="#exporting-data">Exporting Data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#best-practices">Best Practices</a><ul>
+<li><a class="reference internal" href="#daily-monitoring">Daily Monitoring</a></li>
+<li><a class="reference internal" href="#id1">Backorder Management</a></li>
+<li><a class="reference internal" href="#customer-communication">Customer Communication</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#order-not-appearing">Order Not Appearing</a></li>
+<li><a class="reference internal" href="#incorrect-status">Incorrect Status</a></li>
+<li><a class="reference internal" href="#missing-line-items">Missing Line Items</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#related-features">Related Features</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MHS Warehouse Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Order Management</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/order-management.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="order-management">
+<h1>Order Management<a class="headerlink" href="#order-management" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Order Management system provides real-time monitoring of sales orders from MomentumPro ERP. It automatically tracks order status, identifies backorders, flags urgent orders, and provides detailed line-item information.</p>
+</section>
+<section id="order-monitoring-dashboard">
+<h2>Order Monitoring Dashboard<a class="headerlink" href="#order-monitoring-dashboard" title="Link to this heading"></a></h2>
+<section id="accessing-order-monitor">
+<h3>Accessing Order Monitor<a class="headerlink" href="#accessing-order-monitor" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Order Monitor</strong> from the Operations section in the sidebar.</p>
+</section>
+<section id="dashboard-metrics">
+<h3>Dashboard Metrics<a class="headerlink" href="#dashboard-metrics" title="Link to this heading"></a></h3>
+<p>The dashboard displays:</p>
+<ul class="simple">
+<li><p><strong>Total Active Orders</strong> - All open sales orders</p></li>
+<li><p><strong>Urgent Orders</strong> - Orders marked as urgent</p></li>
+<li><p><strong>Orders with Backorders</strong> - Orders containing backordered items</p></li>
+<li><p><strong>New Orders Today</strong> - Orders entered today</p></li>
+<li><p><strong>Average Order Age</strong> - Average days since order entry</p></li>
+</ul>
+</section>
+<section id="order-list-view">
+<h3>Order List View<a class="headerlink" href="#order-list-view" title="Link to this heading"></a></h3>
+<p>Each order shows:</p>
+<ul class="simple">
+<li><p><strong>Invoice Number</strong> - Sales order number</p></li>
+<li><p><strong>Customer Name</strong> - Customer account name</p></li>
+<li><p><strong>Status</strong> - Current order status</p></li>
+<li><p><strong>Enter Date</strong> - When order was created</p></li>
+<li><p><strong>Required Date</strong> - Customer requested delivery date</p></li>
+<li><p><strong>Urgency Indicator</strong> - Visual flag for urgent orders</p></li>
+<li><p><strong>Backorder Indicator</strong> - Shows if order has backorders</p></li>
+<li><p><strong>Sales Rep</strong> - Assigned sales representative</p></li>
+</ul>
+</section>
+</section>
+<section id="order-details">
+<h2>Order Details<a class="headerlink" href="#order-details" title="Link to this heading"></a></h2>
+<section id="viewing-order-details">
+<h3>Viewing Order Details<a class="headerlink" href="#viewing-order-details" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Click on any order in the list</p></li>
+<li><p>Detailed view opens showing:</p>
+<ul class="simple">
+<li><p>Complete order header information</p></li>
+<li><p>Customer details and contact information</p></li>
+<li><p>Line items with quantities and pricing</p></li>
+<li><p>Backorder information</p></li>
+<li><p>Order notes and comments</p></li>
+<li><p>Status history</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="line-item-information">
+<h3>Line Item Information<a class="headerlink" href="#line-item-information" title="Link to this heading"></a></h3>
+<p>For each line item:</p>
+<ul class="simple">
+<li><p>Part number and description</p></li>
+<li><p>Quantity ordered</p></li>
+<li><p>Quantity shipped</p></li>
+<li><p>Quantity backordered</p></li>
+<li><p>Unit price</p></li>
+<li><p>Extended price</p></li>
+<li><p>Expected availability date (if backordered)</p></li>
+</ul>
+</section>
+<section id="order-status-indicators">
+<h3>Order Status Indicators<a class="headerlink" href="#order-status-indicators" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Open</strong> - Order is active and being processed</p></li>
+<li><p><strong>Picking</strong> - Order is being picked in warehouse</p></li>
+<li><p><strong>Packed</strong> - Order is packed and ready to ship</p></li>
+<li><p><strong>Shipped</strong> - Order has been dispatched</p></li>
+<li><p><strong>Invoiced</strong> - Order has been invoiced</p></li>
+<li><p><strong>Finalised</strong> - Order is complete</p></li>
+</ul>
+</section>
+</section>
+<section id="backorder-management">
+<h2>Backorder Management<a class="headerlink" href="#backorder-management" title="Link to this heading"></a></h2>
+<section id="identifying-backorders">
+<h3>Identifying Backorders<a class="headerlink" href="#identifying-backorders" title="Link to this heading"></a></h3>
+<p>Orders with backorders are:</p>
+<ul class="simple">
+<li><p>Highlighted with a red indicator</p></li>
+<li><p>Shown in the “Orders with Backorders” filter</p></li>
+<li><p>Listed with backorder quantities per line item</p></li>
+</ul>
+</section>
+<section id="backorder-information">
+<h3>Backorder Information<a class="headerlink" href="#backorder-information" title="Link to this heading"></a></h3>
+<p>For backordered items:</p>
+<ul class="simple">
+<li><p>Quantity on backorder</p></li>
+<li><p>Expected availability date</p></li>
+<li><p>Supplier information</p></li>
+<li><p>Purchase order status</p></li>
+<li><p>Alternative part suggestions</p></li>
+</ul>
+</section>
+<section id="backorder-alerts">
+<h3>Backorder Alerts<a class="headerlink" href="#backorder-alerts" title="Link to this heading"></a></h3>
+<p>The system automatically:</p>
+<ul class="simple">
+<li><p>Monitors backorder status</p></li>
+<li><p>Checks for incoming GRNs</p></li>
+<li><p>Notifies when backorder items arrive</p></li>
+<li><p>Updates order status in real-time</p></li>
+</ul>
+</section>
+</section>
+<section id="urgent-orders">
+<h2>Urgent Orders<a class="headerlink" href="#urgent-orders" title="Link to this heading"></a></h2>
+<section id="marking-orders-as-urgent">
+<h3>Marking Orders as Urgent<a class="headerlink" href="#marking-orders-as-urgent" title="Link to this heading"></a></h3>
+<p>Orders are marked urgent when:</p>
+<ul class="simple">
+<li><p>Required date is within 2 days</p></li>
+<li><p>Customer has requested expedited delivery</p></li>
+<li><p>Sales rep manually flags as urgent</p></li>
+<li><p>System detects critical status</p></li>
+</ul>
+</section>
+<section id="urgent-order-handling">
+<h3>Urgent Order Handling<a class="headerlink" href="#urgent-order-handling" title="Link to this heading"></a></h3>
+<p>Urgent orders:</p>
+<ul class="simple">
+<li><p>Display with red “URGENT” badge</p></li>
+<li><p>Appear at top of order list</p></li>
+<li><p>Trigger notifications to warehouse</p></li>
+<li><p>Receive priority processing</p></li>
+</ul>
+</section>
+</section>
+<section id="order-filtering-and-search">
+<h2>Order Filtering and Search<a class="headerlink" href="#order-filtering-and-search" title="Link to this heading"></a></h2>
+<section id="filter-options">
+<h3>Filter Options<a class="headerlink" href="#filter-options" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Status</strong> - Filter by order status</p></li>
+<li><p><strong>Date Range</strong> - Show orders within date range</p></li>
+<li><p><strong>Sales Rep</strong> - Filter by assigned sales rep</p></li>
+<li><p><strong>Customer</strong> - Filter by customer name</p></li>
+<li><p><strong>Backorders Only</strong> - Show only orders with backorders</p></li>
+<li><p><strong>Urgent Only</strong> - Show only urgent orders</p></li>
+</ul>
+</section>
+<section id="search-functionality">
+<h3>Search Functionality<a class="headerlink" href="#search-functionality" title="Link to this heading"></a></h3>
+<p>Search by:</p>
+<ul class="simple">
+<li><p>Invoice number</p></li>
+<li><p>Customer name</p></li>
+<li><p>Part number</p></li>
+<li><p>Purchase order number</p></li>
+<li><p>Sales order reference</p></li>
+</ul>
+</section>
+</section>
+<section id="my-orders-sales-users">
+<h2>My Orders (Sales Users)<a class="headerlink" href="#my-orders-sales-users" title="Link to this heading"></a></h2>
+<section id="personal-order-dashboard">
+<h3>Personal Order Dashboard<a class="headerlink" href="#personal-order-dashboard" title="Link to this heading"></a></h3>
+<p>Sales users have access to “My Orders” showing:</p>
+<ul class="simple">
+<li><p>Orders assigned to them</p></li>
+<li><p>Personal performance metrics</p></li>
+<li><p>Order aging analysis</p></li>
+<li><p>Backorder summary</p></li>
+<li><p>Recent order activity</p></li>
+</ul>
+</section>
+<section id="my-orders-metrics">
+<h3>My Orders Metrics<a class="headerlink" href="#my-orders-metrics" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Total Open Orders</strong> - Your active orders</p></li>
+<li><p><strong>Orders with Backorders</strong> - Your orders with backorders</p></li>
+<li><p><strong>Urgent Orders</strong> - Your urgent orders</p></li>
+<li><p><strong>Critical Orders</strong> - Urgent orders with backorders</p></li>
+<li><p><strong>Total Backorder Quantity</strong> - Sum of all backordered items</p></li>
+<li><p><strong>Most Recent Order</strong> - Latest order details</p></li>
+</ul>
+</section>
+<section id="order-history">
+<h3>Order History<a class="headerlink" href="#order-history" title="Link to this heading"></a></h3>
+<p>View historical orders:</p>
+<ul class="simple">
+<li><p>Completed orders</p></li>
+<li><p>Cancelled orders</p></li>
+<li><p>Order trends over time</p></li>
+<li><p>Customer order patterns</p></li>
+</ul>
+</section>
+</section>
+<section id="order-alerts">
+<h2>Order Alerts<a class="headerlink" href="#order-alerts" title="Link to this heading"></a></h2>
+<section id="alert-configuration">
+<h3>Alert Configuration<a class="headerlink" href="#alert-configuration" title="Link to this heading"></a></h3>
+<p>Set up alerts for:</p>
+<ul class="simple">
+<li><p>Orders approaching required date</p></li>
+<li><p>New backorders detected</p></li>
+<li><p>Backorder items received</p></li>
+<li><p>Order status changes</p></li>
+<li><p>Customer-specific alerts</p></li>
+</ul>
+</section>
+<section id="alert-preferences">
+<h3>Alert Preferences<a class="headerlink" href="#alert-preferences" title="Link to this heading"></a></h3>
+<p>Configure:</p>
+<ul class="simple">
+<li><p>Alert threshold (days before required date)</p></li>
+<li><p>Notification method (email, in-app)</p></li>
+<li><p>Alert frequency</p></li>
+<li><p>Snooze duration options</p></li>
+<li><p>Escalation rules</p></li>
+</ul>
+</section>
+<section id="managing-alerts">
+<h3>Managing Alerts<a class="headerlink" href="#managing-alerts" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>View Active Alerts</strong> - See all current alerts</p></li>
+<li><p><strong>Snooze Alerts</strong> - Temporarily dismiss alerts</p></li>
+<li><p><strong>Dismiss Alerts</strong> - Permanently dismiss alerts</p></li>
+<li><p><strong>Alert History</strong> - View past alerts</p></li>
+</ul>
+</section>
+</section>
+<section id="order-notes">
+<h2>Order Notes<a class="headerlink" href="#order-notes" title="Link to this heading"></a></h2>
+<section id="adding-notes">
+<h3>Adding Notes<a class="headerlink" href="#adding-notes" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Open order details</p></li>
+<li><p>Click <strong>Add Note</strong> button</p></li>
+<li><p>Enter note text</p></li>
+<li><p>Select note type (Internal, Customer, Warehouse)</p></li>
+<li><p>Save note</p></li>
+</ol>
+</section>
+<section id="note-types">
+<h3>Note Types<a class="headerlink" href="#note-types" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Internal</strong> - Visible to staff only</p></li>
+<li><p><strong>Customer</strong> - Visible to customer</p></li>
+<li><p><strong>Warehouse</strong> - Visible to warehouse staff</p></li>
+<li><p><strong>Purchasing</strong> - Visible to purchasing team</p></li>
+</ul>
+</section>
+<section id="note-history">
+<h3>Note History<a class="headerlink" href="#note-history" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>All notes are timestamped</p></li>
+<li><p>User who added note is recorded</p></li>
+<li><p>Notes can be edited or deleted</p></li>
+<li><p>Full audit trail maintained</p></li>
+</ul>
+</section>
+</section>
+<section id="order-watchlist">
+<h2>Order Watchlist<a class="headerlink" href="#order-watchlist" title="Link to this heading"></a></h2>
+<section id="adding-to-watchlist">
+<h3>Adding to Watchlist<a class="headerlink" href="#adding-to-watchlist" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Open order details</p></li>
+<li><p>Click <strong>Add to Watchlist</strong> button</p></li>
+<li><p>Order is monitored for changes</p></li>
+<li><p>Receive notifications on updates</p></li>
+</ol>
+</section>
+<section id="watchlist-features">
+<h3>Watchlist Features<a class="headerlink" href="#watchlist-features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Monitor specific orders closely</p></li>
+<li><p>Receive priority notifications</p></li>
+<li><p>Quick access from sidebar</p></li>
+<li><p>Custom alert settings per order</p></li>
+</ul>
+</section>
+<section id="managing-watchlist">
+<h3>Managing Watchlist<a class="headerlink" href="#managing-watchlist" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>View all watched orders</p></li>
+<li><p>Remove orders from watchlist</p></li>
+<li><p>Set custom alert thresholds</p></li>
+<li><p>Export watchlist data</p></li>
+</ul>
+</section>
+</section>
+<section id="tv-display-mode">
+<h2>TV Display Mode<a class="headerlink" href="#tv-display-mode" title="Link to this heading"></a></h2>
+<section id="accessing-tv-display">
+<h3>Accessing TV Display<a class="headerlink" href="#accessing-tv-display" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>TV Displays &gt; Sales Orders TV</strong> from sidebar.</p>
+</section>
+<section id="tv-display-features">
+<h3>TV Display Features<a class="headerlink" href="#tv-display-features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Full-screen order monitoring</p></li>
+<li><p>Auto-refresh every 30 seconds</p></li>
+<li><p>Color-coded status indicators</p></li>
+<li><p>Urgent orders highlighted</p></li>
+<li><p>Optimized for large displays</p></li>
+</ul>
+</section>
+<section id="tv-display-configuration">
+<h3>TV Display Configuration<a class="headerlink" href="#tv-display-configuration" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Select which orders to display</p></li>
+<li><p>Configure refresh interval</p></li>
+<li><p>Choose display columns</p></li>
+<li><p>Set color scheme</p></li>
+</ul>
+</section>
+</section>
+<section id="integration-with-other-modules">
+<h2>Integration with Other Modules<a class="headerlink" href="#integration-with-other-modules" title="Link to this heading"></a></h2>
+<section id="grn-monitoring">
+<h3>GRN Monitoring<a class="headerlink" href="#grn-monitoring" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Links to goods receipt notes</p></li>
+<li><p>Shows when backorder items arrive</p></li>
+<li><p>Updates order status automatically</p></li>
+<li><p>Tracks partial receipts</p></li>
+</ul>
+</section>
+<section id="order-board">
+<h3>Order Board<a class="headerlink" href="#order-board" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Links to procurement items</p></li>
+<li><p>Shows parts being ordered</p></li>
+<li><p>Tracks supplier status</p></li>
+<li><p>Coordinates purchasing</p></li>
+</ul>
+</section>
+<section id="counter-collect">
+<h3>Counter Collect<a class="headerlink" href="#counter-collect" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Identifies customer pickup orders</p></li>
+<li><p>Tracks collection status</p></li>
+<li><p>Sends pickup notifications</p></li>
+<li><p>Manages collection reminders</p></li>
+</ul>
+</section>
+</section>
+<section id="reporting">
+<h2>Reporting<a class="headerlink" href="#reporting" title="Link to this heading"></a></h2>
+<section id="available-reports">
+<h3>Available Reports<a class="headerlink" href="#available-reports" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Order Aging Report</strong> - Orders by age</p></li>
+<li><p><strong>Backorder Report</strong> - All backordered items</p></li>
+<li><p><strong>Sales Rep Performance</strong> - Orders by sales rep</p></li>
+<li><p><strong>Customer Order History</strong> - Orders by customer</p></li>
+<li><p><strong>Urgent Orders Report</strong> - All urgent orders</p></li>
+</ul>
+</section>
+<section id="exporting-data">
+<h3>Exporting Data<a class="headerlink" href="#exporting-data" title="Link to this heading"></a></h3>
+<p>Export options:</p>
+<ul class="simple">
+<li><p>Excel spreadsheet</p></li>
+<li><p>CSV file</p></li>
+<li><p>PDF report</p></li>
+<li><p>Email report</p></li>
+</ul>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<section id="daily-monitoring">
+<h3>Daily Monitoring<a class="headerlink" href="#daily-monitoring" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Review urgent orders first</p></li>
+<li><p>Check backorder status</p></li>
+<li><p>Follow up on aging orders</p></li>
+<li><p>Update order notes</p></li>
+<li><p>Communicate with customers</p></li>
+</ol>
+</section>
+<section id="id1">
+<h3>Backorder Management<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Monitor backorder alerts</p></li>
+<li><p>Check supplier status</p></li>
+<li><p>Communicate ETAs to customers</p></li>
+<li><p>Consider alternatives</p></li>
+<li><p>Update order priorities</p></li>
+</ol>
+</section>
+<section id="customer-communication">
+<h3>Customer Communication<a class="headerlink" href="#customer-communication" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Proactive status updates</p></li>
+<li><p>Clear ETA communication</p></li>
+<li><p>Document all interactions</p></li>
+<li><p>Set realistic expectations</p></li>
+<li><p>Follow up on commitments</p></li>
+</ol>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="order-not-appearing">
+<h3>Order Not Appearing<a class="headerlink" href="#order-not-appearing" title="Link to this heading"></a></h3>
+<p>If an order doesn’t appear:</p>
+<ul class="simple">
+<li><p>Check date filters</p></li>
+<li><p>Verify order status</p></li>
+<li><p>Ensure order is in MomentumPro</p></li>
+<li><p>Check user permissions</p></li>
+<li><p>Contact admin if issue persists</p></li>
+</ul>
+</section>
+<section id="incorrect-status">
+<h3>Incorrect Status<a class="headerlink" href="#incorrect-status" title="Link to this heading"></a></h3>
+<p>If order status is incorrect:</p>
+<ul class="simple">
+<li><p>Refresh the page</p></li>
+<li><p>Check MomentumPro directly</p></li>
+<li><p>Wait for next sync cycle</p></li>
+<li><p>Report discrepancy to admin</p></li>
+</ul>
+</section>
+<section id="missing-line-items">
+<h3>Missing Line Items<a class="headerlink" href="#missing-line-items" title="Link to this heading"></a></h3>
+<p>If line items are missing:</p>
+<ul class="simple">
+<li><p>Verify in MomentumPro</p></li>
+<li><p>Check if items were deleted</p></li>
+<li><p>Review order history</p></li>
+<li><p>Contact admin for investigation</p></li>
+</ul>
+</section>
+</section>
+<section id="related-features">
+<h2>Related Features<a class="headerlink" href="#related-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="order-board.html"><span class="std std-doc">Order Board</span></a> - Procurement management</p></li>
+<li><p><a class="reference internal" href="#grn-monitoring.md"><span class="xref myst">GRN Monitoring</span></a> - Goods receipt tracking</p></li>
+<li><p><a class="reference internal" href="#counter-collect.md"><span class="xref myst">Counter Collect</span></a> - Customer pickup management</p></li>
+<li><p><a class="reference internal" href="#my-orders.md"><span class="xref myst">My Orders</span></a> - Personal order dashboard</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MHS (Momentum Hydraulics &amp; Seals).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

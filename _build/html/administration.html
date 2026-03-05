@@ -1,0 +1,865 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>System Administration &mdash; MHS Warehouse Management System 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MHS Warehouse Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">System Administration</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#admin-dashboard">Admin Dashboard</a><ul>
+<li><a class="reference internal" href="#accessing-admin-dashboard">Accessing Admin Dashboard</a></li>
+<li><a class="reference internal" href="#dashboard-overview">Dashboard Overview</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-management">User Management</a><ul>
+<li><a class="reference internal" href="#managing-users">Managing Users</a></li>
+<li><a class="reference internal" href="#creating-new-users">Creating New Users</a></li>
+<li><a class="reference internal" href="#password-requirements">Password Requirements</a></li>
+<li><a class="reference internal" href="#editing-users">Editing Users</a></li>
+<li><a class="reference internal" href="#resetting-passwords">Resetting Passwords</a></li>
+<li><a class="reference internal" href="#user-mapping">User Mapping</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#permission-management">Permission Management</a><ul>
+<li><a class="reference internal" href="#permission-system">Permission System</a></li>
+<li><a class="reference internal" href="#viewing-permissions">Viewing Permissions</a></li>
+<li><a class="reference internal" href="#creating-permissions">Creating Permissions</a></li>
+<li><a class="reference internal" href="#managing-role-permissions">Managing Role Permissions</a></li>
+<li><a class="reference internal" href="#default-permissions">Default Permissions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#printer-configuration">Printer Configuration</a><ul>
+<li><a class="reference internal" href="#managing-printers">Managing Printers</a></li>
+<li><a class="reference internal" href="#adding-a-printer">Adding a Printer</a></li>
+<li><a class="reference internal" href="#testing-printers">Testing Printers</a></li>
+<li><a class="reference internal" href="#printer-troubleshooting">Printer Troubleshooting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#background-jobs">Background Jobs</a><ul>
+<li><a class="reference internal" href="#job-monitoring">Job Monitoring</a></li>
+<li><a class="reference internal" href="#background-job-types">Background Job Types</a></li>
+<li><a class="reference internal" href="#configuring-jobs">Configuring Jobs</a></li>
+<li><a class="reference internal" href="#job-history">Job History</a></li>
+<li><a class="reference internal" href="#manual-job-execution">Manual Job Execution</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#system-logs">System Logs</a><ul>
+<li><a class="reference internal" href="#viewing-logs">Viewing Logs</a></li>
+<li><a class="reference internal" href="#log-levels">Log Levels</a></li>
+<li><a class="reference internal" href="#filtering-logs">Filtering Logs</a></li>
+<li><a class="reference internal" href="#searching-logs">Searching Logs</a></li>
+<li><a class="reference internal" href="#exporting-logs">Exporting Logs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#customer-management">Customer Management</a><ul>
+<li><a class="reference internal" href="#managing-customers">Managing Customers</a></li>
+<li><a class="reference internal" href="#customer-information">Customer Information</a></li>
+<li><a class="reference internal" href="#customer-contacts">Customer Contacts</a></li>
+<li><a class="reference internal" href="#notification-preferences">Notification Preferences</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#api-keys">API Keys</a><ul>
+<li><a class="reference internal" href="#managing-api-keys">Managing API Keys</a></li>
+<li><a class="reference internal" href="#creating-api-keys">Creating API Keys</a></li>
+<li><a class="reference internal" href="#api-key-security">API Key Security</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#queue-monitoring">Queue Monitoring</a><ul>
+<li><a class="reference internal" href="#viewing-queue-status">Viewing Queue Status</a></li>
+<li><a class="reference internal" href="#queue-metrics">Queue Metrics</a></li>
+<li><a class="reference internal" href="#queue-management">Queue Management</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#weekly-reports">Weekly Reports</a><ul>
+<li><a class="reference internal" href="#report-configuration">Report Configuration</a></li>
+<li><a class="reference internal" href="#report-settings">Report Settings</a></li>
+<li><a class="reference internal" href="#report-content">Report Content</a></li>
+<li><a class="reference internal" href="#manual-report-generation">Manual Report Generation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#system-configuration">System Configuration</a><ul>
+<li><a class="reference internal" href="#application-settings">Application Settings</a></li>
+<li><a class="reference internal" href="#email-configuration">Email Configuration</a></li>
+<li><a class="reference internal" href="#integration-settings">Integration Settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#database-maintenance">Database Maintenance</a><ul>
+<li><a class="reference internal" href="#database-health">Database Health</a></li>
+<li><a class="reference internal" href="#maintenance-tasks">Maintenance Tasks</a></li>
+<li><a class="reference internal" href="#backup-and-restore">Backup and Restore</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#security">Security</a><ul>
+<li><a class="reference internal" href="#security-best-practices">Security Best Practices</a></li>
+<li><a class="reference internal" href="#security-monitoring">Security Monitoring</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#related-features">Related Features</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MHS Warehouse Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">System Administration</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/administration.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="system-administration">
+<h1>System Administration<a class="headerlink" href="#system-administration" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Administration section provides system configuration, user management, and monitoring tools for administrators. Access is restricted to users with the Admin role.</p>
+</section>
+<section id="admin-dashboard">
+<h2>Admin Dashboard<a class="headerlink" href="#admin-dashboard" title="Link to this heading"></a></h2>
+<section id="accessing-admin-dashboard">
+<h3>Accessing Admin Dashboard<a class="headerlink" href="#accessing-admin-dashboard" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Admin &gt; Admin Dashboard</strong> from the sidebar.</p>
+</section>
+<section id="dashboard-overview">
+<h3>Dashboard Overview<a class="headerlink" href="#dashboard-overview" title="Link to this heading"></a></h3>
+<p>The admin dashboard displays:</p>
+<ul class="simple">
+<li><p><strong>System Health</strong> - Status of all services</p></li>
+<li><p><strong>User Statistics</strong> - Active users and sessions</p></li>
+<li><p><strong>Background Jobs</strong> - Job status and performance</p></li>
+<li><p><strong>Database Status</strong> - Connection and performance</p></li>
+<li><p><strong>Cache Status</strong> - Redis connection and usage</p></li>
+<li><p><strong>API Status</strong> - External API connectivity</p></li>
+<li><p><strong>Recent Activity</strong> - Latest admin actions</p></li>
+</ul>
+</section>
+</section>
+<section id="user-management">
+<h2>User Management<a class="headerlink" href="#user-management" title="Link to this heading"></a></h2>
+<section id="managing-users">
+<h3>Managing Users<a class="headerlink" href="#managing-users" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Admin &gt; Manage Users</strong> to:</p>
+<ul class="simple">
+<li><p>View all system users</p></li>
+<li><p>Create new users</p></li>
+<li><p>Edit user details</p></li>
+<li><p>Reset passwords</p></li>
+<li><p>Assign roles</p></li>
+<li><p>Deactivate users</p></li>
+</ul>
+</section>
+<section id="creating-new-users">
+<h3>Creating New Users<a class="headerlink" href="#creating-new-users" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; New User</strong></p></li>
+<li><p>Fill in user details:</p>
+<ul class="simple">
+<li><p><strong>Email</strong> - User’s email address (username)</p></li>
+<li><p><strong>Full Name</strong> - User’s full name</p></li>
+<li><p><strong>Password</strong> - Initial password (must meet requirements)</p></li>
+<li><p><strong>Confirm Password</strong> - Password confirmation</p></li>
+</ul>
+</li>
+<li><p>Assign roles (can select multiple):</p>
+<ul class="simple">
+<li><p>Admin</p></li>
+<li><p>Sales</p></li>
+<li><p>Warehouse</p></li>
+<li><p>Production</p></li>
+<li><p>Viewer</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Create User</strong></p></li>
+</ol>
+</section>
+<section id="password-requirements">
+<h3>Password Requirements<a class="headerlink" href="#password-requirements" title="Link to this heading"></a></h3>
+<p>Passwords must:</p>
+<ul class="simple">
+<li><p>Be at least 6 characters long</p></li>
+<li><p>Contain at least one uppercase letter</p></li>
+<li><p>Contain at least one lowercase letter</p></li>
+<li><p>Contain at least one digit</p></li>
+<li><p>Contain at least one special character</p></li>
+</ul>
+</section>
+<section id="editing-users">
+<h3>Editing Users<a class="headerlink" href="#editing-users" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; Manage Users</strong></p></li>
+<li><p>Click <strong>Edit</strong> on desired user</p></li>
+<li><p>Modify user details:</p>
+<ul class="simple">
+<li><p>Email address</p></li>
+<li><p>Full name</p></li>
+<li><p>Roles</p></li>
+<li><p>Active status</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Save Changes</strong></p></li>
+</ol>
+</section>
+<section id="resetting-passwords">
+<h3>Resetting Passwords<a class="headerlink" href="#resetting-passwords" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; Manage Users</strong></p></li>
+<li><p>Click <strong>Reset Password</strong> on user</p></li>
+<li><p>Enter new password</p></li>
+<li><p>Confirm password</p></li>
+<li><p>Click <strong>Reset</strong></p></li>
+<li><p>User will be notified of password change</p></li>
+</ol>
+</section>
+<section id="user-mapping">
+<h3>User Mapping<a class="headerlink" href="#user-mapping" title="Link to this heading"></a></h3>
+<p>Link WMS users to MomentumPro users:</p>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; User Mapping</strong></p></li>
+<li><p>Select WMS user</p></li>
+<li><p>Select corresponding MomentumPro user</p></li>
+<li><p>Click <strong>Map User</strong></p></li>
+</ol>
+<p><strong>Benefits of User Mapping</strong>:</p>
+<ul class="simple">
+<li><p>Personal order dashboards</p></li>
+<li><p>Performance tracking</p></li>
+<li><p>KPI attribution</p></li>
+<li><p>Sales rep assignment</p></li>
+</ul>
+</section>
+</section>
+<section id="permission-management">
+<h2>Permission Management<a class="headerlink" href="#permission-management" title="Link to this heading"></a></h2>
+<section id="permission-system">
+<h3>Permission System<a class="headerlink" href="#permission-system" title="Link to this heading"></a></h3>
+<p>The system uses granular permissions for access control.</p>
+</section>
+<section id="viewing-permissions">
+<h3>Viewing Permissions<a class="headerlink" href="#viewing-permissions" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Admin &gt; Permissions</strong> to see:</p>
+<ul class="simple">
+<li><p>All defined permissions</p></li>
+<li><p>Permission descriptions</p></li>
+<li><p>Assigned roles</p></li>
+<li><p>Usage statistics</p></li>
+</ul>
+</section>
+<section id="creating-permissions">
+<h3>Creating Permissions<a class="headerlink" href="#creating-permissions" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; Permissions</strong></p></li>
+<li><p>Click <strong>Create Permission</strong></p></li>
+<li><p>Enter permission details:</p>
+<ul class="simple">
+<li><p><strong>Name</strong> - Permission identifier</p></li>
+<li><p><strong>Display Name</strong> - Human-readable name</p></li>
+<li><p><strong>Description</strong> - What permission allows</p></li>
+<li><p><strong>Category</strong> - Permission grouping</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Create</strong></p></li>
+</ol>
+</section>
+<section id="managing-role-permissions">
+<h3>Managing Role Permissions<a class="headerlink" href="#managing-role-permissions" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; Manage Role Permissions</strong></p></li>
+<li><p>Select role to configure</p></li>
+<li><p>Check/uncheck permissions</p></li>
+<li><p>Click <strong>Save Changes</strong></p></li>
+</ol>
+</section>
+<section id="default-permissions">
+<h3>Default Permissions<a class="headerlink" href="#default-permissions" title="Link to this heading"></a></h3>
+<p><strong>Admin Role</strong>:</p>
+<ul class="simple">
+<li><p>Full system access</p></li>
+<li><p>User management</p></li>
+<li><p>System configuration</p></li>
+<li><p>All feature access</p></li>
+</ul>
+<p><strong>Sales Role</strong>:</p>
+<ul class="simple">
+<li><p>Order management</p></li>
+<li><p>Quote management</p></li>
+<li><p>Customer notifications</p></li>
+<li><p>Personal dashboards</p></li>
+<li><p>Label printing</p></li>
+</ul>
+<p><strong>Warehouse Role</strong>:</p>
+<ul class="simple">
+<li><p>Inventory management</p></li>
+<li><p>Stocktakes</p></li>
+<li><p>Label printing</p></li>
+<li><p>GRN monitoring</p></li>
+<li><p>Counter collect</p></li>
+</ul>
+<p><strong>Production Role</strong>:</p>
+<ul class="simple">
+<li><p>Production order monitoring</p></li>
+<li><p>Production labels</p></li>
+<li><p>Material tracking</p></li>
+</ul>
+<p><strong>Viewer Role</strong>:</p>
+<ul class="simple">
+<li><p>Read-only access</p></li>
+<li><p>Dashboard viewing</p></li>
+<li><p>Report viewing</p></li>
+</ul>
+</section>
+</section>
+<section id="printer-configuration">
+<h2>Printer Configuration<a class="headerlink" href="#printer-configuration" title="Link to this heading"></a></h2>
+<section id="managing-printers">
+<h3>Managing Printers<a class="headerlink" href="#managing-printers" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Admin &gt; Printer Settings</strong> to:</p>
+<ul class="simple">
+<li><p>View configured printers</p></li>
+<li><p>Add new printers</p></li>
+<li><p>Edit printer settings</p></li>
+<li><p>Test printer connectivity</p></li>
+<li><p>Set default printers</p></li>
+</ul>
+</section>
+<section id="adding-a-printer">
+<h3>Adding a Printer<a class="headerlink" href="#adding-a-printer" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; Printer Settings</strong></p></li>
+<li><p>Click <strong>Add Printer</strong></p></li>
+<li><p>Enter printer details:</p>
+<ul class="simple">
+<li><p><strong>Printer Name</strong> - Descriptive name</p></li>
+<li><p><strong>IP Address</strong> - Network IP address</p></li>
+<li><p><strong>Port</strong> - Printer port (usually 9100)</p></li>
+<li><p><strong>Printer Type</strong> - Zebra, Complypro, etc.</p></li>
+<li><p><strong>Label Types</strong> - Supported label types</p></li>
+<li><p><strong>Default</strong> - Set as default for label type</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Save</strong></p></li>
+</ol>
+</section>
+<section id="testing-printers">
+<h3>Testing Printers<a class="headerlink" href="#testing-printers" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; Printer Settings</strong></p></li>
+<li><p>Click <strong>Test</strong> on printer</p></li>
+<li><p>System sends test print</p></li>
+<li><p>Verify label prints correctly</p></li>
+</ol>
+</section>
+<section id="printer-troubleshooting">
+<h3>Printer Troubleshooting<a class="headerlink" href="#printer-troubleshooting" title="Link to this heading"></a></h3>
+<p>If printer issues occur:</p>
+<ol class="arabic simple">
+<li><p>Check IP address is correct</p></li>
+<li><p>Verify printer is on network</p></li>
+<li><p>Test connectivity with ping</p></li>
+<li><p>Check printer supplies</p></li>
+<li><p>Restart printer if necessary</p></li>
+<li><p>Update printer configuration</p></li>
+</ol>
+</section>
+</section>
+<section id="background-jobs">
+<h2>Background Jobs<a class="headerlink" href="#background-jobs" title="Link to this heading"></a></h2>
+<section id="job-monitoring">
+<h3>Job Monitoring<a class="headerlink" href="#job-monitoring" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Admin &gt; Background Jobs</strong> to:</p>
+<ul class="simple">
+<li><p>View all background jobs</p></li>
+<li><p>Check job status</p></li>
+<li><p>View job history</p></li>
+<li><p>Configure job settings</p></li>
+<li><p>Manually trigger jobs</p></li>
+</ul>
+</section>
+<section id="background-job-types">
+<h3>Background Job Types<a class="headerlink" href="#background-job-types" title="Link to this heading"></a></h3>
+<p><strong>Order Monitoring</strong>:</p>
+<ul class="simple">
+<li><p>Syncs sales orders from MomentumPro</p></li>
+<li><p>Runs every 10 minutes</p></li>
+<li><p>Checks for new and updated orders</p></li>
+</ul>
+<p><strong>Production Order Monitoring</strong>:</p>
+<ul class="simple">
+<li><p>Syncs production orders</p></li>
+<li><p>Runs every 30 minutes</p></li>
+<li><p>Updates order status</p></li>
+</ul>
+<p><strong>GRN Monitoring</strong>:</p>
+<ul class="simple">
+<li><p>Tracks goods receipt notes</p></li>
+<li><p>Runs every 30 minutes</p></li>
+<li><p>Checks for backorder fulfillment</p></li>
+</ul>
+<p><strong>Quote Monitoring</strong>:</p>
+<ul class="simple">
+<li><p>Syncs quotes from MomentumPro</p></li>
+<li><p>Runs every 15 minutes</p></li>
+<li><p>Tracks quote conversions</p></li>
+</ul>
+<p><strong>Calibration Reminders</strong>:</p>
+<ul class="simple">
+<li><p>Sends calibration due reminders</p></li>
+<li><p>Runs daily at 8:00 AM</p></li>
+<li><p>Emails customers and staff</p></li>
+</ul>
+<p><strong>KPI Capture</strong>:</p>
+<ul class="simple">
+<li><p>Captures KPI snapshots</p></li>
+<li><p>Runs every 30 minutes</p></li>
+<li><p>Stores historical data</p></li>
+</ul>
+<p><strong>Counter Collect Monitoring</strong>:</p>
+<ul class="simple">
+<li><p>Scans for customer pickup orders</p></li>
+<li><p>Runs every 15 minutes</p></li>
+<li><p>Sends reminder notifications</p></li>
+</ul>
+</section>
+<section id="configuring-jobs">
+<h3>Configuring Jobs<a class="headerlink" href="#configuring-jobs" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; Background Jobs</strong></p></li>
+<li><p>Click <strong>Edit</strong> on job</p></li>
+<li><p>Modify settings:</p>
+<ul class="simple">
+<li><p><strong>Enabled</strong> - Enable/disable job</p></li>
+<li><p><strong>Interval</strong> - How often job runs</p></li>
+<li><p><strong>Timeout</strong> - Maximum execution time</p></li>
+<li><p><strong>Retry Attempts</strong> - Number of retries on failure</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Save</strong></p></li>
+</ol>
+</section>
+<section id="job-history">
+<h3>Job History<a class="headerlink" href="#job-history" title="Link to this heading"></a></h3>
+<p>View job execution history:</p>
+<ul class="simple">
+<li><p>Execution timestamp</p></li>
+<li><p>Duration</p></li>
+<li><p>Success/failure status</p></li>
+<li><p>Error messages</p></li>
+<li><p>Records processed</p></li>
+</ul>
+</section>
+<section id="manual-job-execution">
+<h3>Manual Job Execution<a class="headerlink" href="#manual-job-execution" title="Link to this heading"></a></h3>
+<p>Trigger jobs manually:</p>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; Background Jobs</strong></p></li>
+<li><p>Click <strong>Run Now</strong> on job</p></li>
+<li><p>Job executes immediately</p></li>
+<li><p>View results in history</p></li>
+</ol>
+</section>
+</section>
+<section id="system-logs">
+<h2>System Logs<a class="headerlink" href="#system-logs" title="Link to this heading"></a></h2>
+<section id="viewing-logs">
+<h3>Viewing Logs<a class="headerlink" href="#viewing-logs" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Admin &gt; System Logs</strong> to:</p>
+<ul class="simple">
+<li><p>View application logs</p></li>
+<li><p>Filter by severity</p></li>
+<li><p>Search log messages</p></li>
+<li><p>Export logs</p></li>
+<li><p>Monitor errors</p></li>
+</ul>
+</section>
+<section id="log-levels">
+<h3>Log Levels<a class="headerlink" href="#log-levels" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Information</strong> - General information</p></li>
+<li><p><strong>Warning</strong> - Potential issues</p></li>
+<li><p><strong>Error</strong> - Errors that occurred</p></li>
+<li><p><strong>Critical</strong> - Critical failures</p></li>
+</ul>
+</section>
+<section id="filtering-logs">
+<h3>Filtering Logs<a class="headerlink" href="#filtering-logs" title="Link to this heading"></a></h3>
+<p>Filter by:</p>
+<ul class="simple">
+<li><p><strong>Date Range</strong> - Specific time period</p></li>
+<li><p><strong>Log Level</strong> - Severity level</p></li>
+<li><p><strong>Category</strong> - Log category</p></li>
+<li><p><strong>User</strong> - Specific user actions</p></li>
+<li><p><strong>Event Type</strong> - Type of event</p></li>
+</ul>
+</section>
+<section id="searching-logs">
+<h3>Searching Logs<a class="headerlink" href="#searching-logs" title="Link to this heading"></a></h3>
+<p>Search capabilities:</p>
+<ul class="simple">
+<li><p>Full-text search</p></li>
+<li><p>Regex patterns</p></li>
+<li><p>Multiple keywords</p></li>
+<li><p>Case-sensitive/insensitive</p></li>
+</ul>
+</section>
+<section id="exporting-logs">
+<h3>Exporting Logs<a class="headerlink" href="#exporting-logs" title="Link to this heading"></a></h3>
+<p>Export options:</p>
+<ul class="simple">
+<li><p><strong>Download</strong> - Download log file</p></li>
+<li><p><strong>Email</strong> - Email logs to admin</p></li>
+<li><p><strong>Archive</strong> - Archive old logs</p></li>
+</ul>
+</section>
+</section>
+<section id="customer-management">
+<h2>Customer Management<a class="headerlink" href="#customer-management" title="Link to this heading"></a></h2>
+<section id="managing-customers">
+<h3>Managing Customers<a class="headerlink" href="#managing-customers" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Admin &gt; Customers</strong> to:</p>
+<ul class="simple">
+<li><p>View all customers</p></li>
+<li><p>Add new customers</p></li>
+<li><p>Edit customer details</p></li>
+<li><p>Manage customer contacts</p></li>
+<li><p>Configure notification preferences</p></li>
+</ul>
+</section>
+<section id="customer-information">
+<h3>Customer Information<a class="headerlink" href="#customer-information" title="Link to this heading"></a></h3>
+<p>For each customer:</p>
+<ul class="simple">
+<li><p>Company name</p></li>
+<li><p>Contact person</p></li>
+<li><p>Email address</p></li>
+<li><p>Phone number</p></li>
+<li><p>Physical address</p></li>
+<li><p>Billing address</p></li>
+<li><p>Customer code (from MomentumPro)</p></li>
+<li><p>Active status</p></li>
+</ul>
+</section>
+<section id="customer-contacts">
+<h3>Customer Contacts<a class="headerlink" href="#customer-contacts" title="Link to this heading"></a></h3>
+<p>Manage multiple contacts per customer:</p>
+<ul class="simple">
+<li><p>Primary contact</p></li>
+<li><p>Billing contact</p></li>
+<li><p>Technical contact</p></li>
+<li><p>Additional contacts</p></li>
+</ul>
+</section>
+<section id="notification-preferences">
+<h3>Notification Preferences<a class="headerlink" href="#notification-preferences" title="Link to this heading"></a></h3>
+<p>Configure per customer:</p>
+<ul class="simple">
+<li><p>Email notifications enabled</p></li>
+<li><p>Notification types</p></li>
+<li><p>Contact preferences</p></li>
+<li><p>Reminder settings</p></li>
+</ul>
+</section>
+</section>
+<section id="api-keys">
+<h2>API Keys<a class="headerlink" href="#api-keys" title="Link to this heading"></a></h2>
+<section id="managing-api-keys">
+<h3>Managing API Keys<a class="headerlink" href="#managing-api-keys" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Admin &gt; API Keys</strong> to:</p>
+<ul class="simple">
+<li><p>View active API keys</p></li>
+<li><p>Create new API keys</p></li>
+<li><p>Revoke API keys</p></li>
+<li><p>Monitor API usage</p></li>
+</ul>
+</section>
+<section id="creating-api-keys">
+<h3>Creating API Keys<a class="headerlink" href="#creating-api-keys" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; API Keys</strong></p></li>
+<li><p>Click <strong>Create API Key</strong></p></li>
+<li><p>Enter details:</p>
+<ul class="simple">
+<li><p><strong>Client Name</strong> - Application name</p></li>
+<li><p><strong>Description</strong> - Purpose of key</p></li>
+<li><p><strong>Permissions</strong> - API access level</p></li>
+<li><p><strong>Expiration</strong> - Optional expiry date</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Generate</strong></p></li>
+<li><p>Copy API key (shown once only)</p></li>
+</ol>
+</section>
+<section id="api-key-security">
+<h3>API Key Security<a class="headerlink" href="#api-key-security" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Keys are hashed in database</p></li>
+<li><p>Cannot be retrieved after creation</p></li>
+<li><p>Revoke compromised keys immediately</p></li>
+<li><p>Rotate keys regularly</p></li>
+<li><p>Monitor usage for anomalies</p></li>
+</ul>
+</section>
+</section>
+<section id="queue-monitoring">
+<h2>Queue Monitoring<a class="headerlink" href="#queue-monitoring" title="Link to this heading"></a></h2>
+<section id="viewing-queue-status">
+<h3>Viewing Queue Status<a class="headerlink" href="#viewing-queue-status" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Admin &gt; Queue Monitoring</strong> to:</p>
+<ul class="simple">
+<li><p>View API queue status</p></li>
+<li><p>Monitor queue backlog</p></li>
+<li><p>Check stuck queries</p></li>
+<li><p>View queue health metrics</p></li>
+</ul>
+</section>
+<section id="queue-metrics">
+<h3>Queue Metrics<a class="headerlink" href="#queue-metrics" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Queue Length</strong> - Items in queue</p></li>
+<li><p><strong>Processing Rate</strong> - Items per second</p></li>
+<li><p><strong>Average Wait Time</strong> - Time in queue</p></li>
+<li><p><strong>Stuck Queries</strong> - Queries over threshold</p></li>
+<li><p><strong>Failed Queries</strong> - Recent failures</p></li>
+</ul>
+</section>
+<section id="queue-management">
+<h3>Queue Management<a class="headerlink" href="#queue-management" title="Link to this heading"></a></h3>
+<p>Actions available:</p>
+<ul class="simple">
+<li><p><strong>Clear Queue</strong> - Remove all items</p></li>
+<li><p><strong>Retry Failed</strong> - Retry failed items</p></li>
+<li><p><strong>Pause Queue</strong> - Temporarily stop processing</p></li>
+<li><p><strong>Resume Queue</strong> - Resume processing</p></li>
+</ul>
+</section>
+</section>
+<section id="weekly-reports">
+<h2>Weekly Reports<a class="headerlink" href="#weekly-reports" title="Link to this heading"></a></h2>
+<section id="report-configuration">
+<h3>Report Configuration<a class="headerlink" href="#report-configuration" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Admin &gt; Weekly Reports</strong> to:</p>
+<ul class="simple">
+<li><p>Configure report schedule</p></li>
+<li><p>Set recipients</p></li>
+<li><p>Customize report content</p></li>
+<li><p>View report history</p></li>
+</ul>
+</section>
+<section id="report-settings">
+<h3>Report Settings<a class="headerlink" href="#report-settings" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Day of Week</strong> - When to send (default: Thursday)</p></li>
+<li><p><strong>Time of Day</strong> - Send time (default: 9:00 AM)</p></li>
+<li><p><strong>Recipients</strong> - Email addresses</p></li>
+<li><p><strong>Test Mode</strong> - Send to test address only</p></li>
+<li><p><strong>Enabled</strong> - Enable/disable automated sending</p></li>
+</ul>
+</section>
+<section id="report-content">
+<h3>Report Content<a class="headerlink" href="#report-content" title="Link to this heading"></a></h3>
+<p>Weekly reports include:</p>
+<ul class="simple">
+<li><p>Order statistics</p></li>
+<li><p>Production summary</p></li>
+<li><p>Backorder status</p></li>
+<li><p>Performance metrics</p></li>
+<li><p>User activity</p></li>
+</ul>
+</section>
+<section id="manual-report-generation">
+<h3>Manual Report Generation<a class="headerlink" href="#manual-report-generation" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Admin &gt; Weekly Reports</strong></p></li>
+<li><p>Click <strong>Generate Report</strong></p></li>
+<li><p>Select date range</p></li>
+<li><p>Choose recipients</p></li>
+<li><p>Click <strong>Send Report</strong></p></li>
+</ol>
+</section>
+</section>
+<section id="system-configuration">
+<h2>System Configuration<a class="headerlink" href="#system-configuration" title="Link to this heading"></a></h2>
+<section id="application-settings">
+<h3>Application Settings<a class="headerlink" href="#application-settings" title="Link to this heading"></a></h3>
+<p>Configure system-wide settings:</p>
+<ul class="simple">
+<li><p><strong>Application Name</strong> - Display name</p></li>
+<li><p><strong>Company Information</strong> - Company details</p></li>
+<li><p><strong>Time Zone</strong> - System timezone (Australia/Perth)</p></li>
+<li><p><strong>Date Format</strong> - Display format</p></li>
+<li><p><strong>Currency</strong> - Default currency</p></li>
+</ul>
+</section>
+<section id="email-configuration">
+<h3>Email Configuration<a class="headerlink" href="#email-configuration" title="Link to this heading"></a></h3>
+<p>Configure email settings:</p>
+<ul class="simple">
+<li><p><strong>SMTP Provider</strong> - Email service (SMTP2Go)</p></li>
+<li><p><strong>Sender Email</strong> - From address</p></li>
+<li><p><strong>Sender Name</strong> - From name</p></li>
+<li><p><strong>Reply-To Email</strong> - Reply address</p></li>
+<li><p><strong>BCC Email</strong> - Always BCC address</p></li>
+</ul>
+</section>
+<section id="integration-settings">
+<h3>Integration Settings<a class="headerlink" href="#integration-settings" title="Link to this heading"></a></h3>
+<p>Configure external integrations:</p>
+<ul class="simple">
+<li><p><strong>MomentumPro API</strong> - ERP integration</p></li>
+<li><p><strong>SimpleInOut</strong> - Attendance tracking</p></li>
+<li><p><strong>AWS S3</strong> - Document storage</p></li>
+<li><p><strong>OpenAI</strong> - AI features</p></li>
+<li><p><strong>Hiverr</strong> - Email monitoring</p></li>
+</ul>
+</section>
+</section>
+<section id="database-maintenance">
+<h2>Database Maintenance<a class="headerlink" href="#database-maintenance" title="Link to this heading"></a></h2>
+<section id="database-health">
+<h3>Database Health<a class="headerlink" href="#database-health" title="Link to this heading"></a></h3>
+<p>Monitor database:</p>
+<ul class="simple">
+<li><p>Connection status</p></li>
+<li><p>Query performance</p></li>
+<li><p>Table sizes</p></li>
+<li><p>Index usage</p></li>
+<li><p>Slow queries</p></li>
+</ul>
+</section>
+<section id="maintenance-tasks">
+<h3>Maintenance Tasks<a class="headerlink" href="#maintenance-tasks" title="Link to this heading"></a></h3>
+<p>Regular maintenance:</p>
+<ul class="simple">
+<li><p><strong>Vacuum</strong> - Reclaim storage</p></li>
+<li><p><strong>Reindex</strong> - Rebuild indexes</p></li>
+<li><p><strong>Analyze</strong> - Update statistics</p></li>
+<li><p><strong>Backup</strong> - Database backup</p></li>
+</ul>
+</section>
+<section id="backup-and-restore">
+<h3>Backup and Restore<a class="headerlink" href="#backup-and-restore" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Automated daily backups</p></li>
+<li><p>Manual backup on demand</p></li>
+<li><p>Point-in-time recovery</p></li>
+<li><p>Backup verification</p></li>
+</ul>
+</section>
+</section>
+<section id="security">
+<h2>Security<a class="headerlink" href="#security" title="Link to this heading"></a></h2>
+<section id="security-best-practices">
+<h3>Security Best Practices<a class="headerlink" href="#security-best-practices" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Strong Passwords</strong> - Enforce password policy</p></li>
+<li><p><strong>Regular Updates</strong> - Keep system updated</p></li>
+<li><p><strong>Access Control</strong> - Limit admin access</p></li>
+<li><p><strong>Audit Logs</strong> - Monitor admin actions</p></li>
+<li><p><strong>API Security</strong> - Protect API keys</p></li>
+<li><p><strong>Network Security</strong> - Use HTTPS</p></li>
+<li><p><strong>Data Encryption</strong> - Encrypt sensitive data</p></li>
+</ol>
+</section>
+<section id="security-monitoring">
+<h3>Security Monitoring<a class="headerlink" href="#security-monitoring" title="Link to this heading"></a></h3>
+<p>Monitor for:</p>
+<ul class="simple">
+<li><p>Failed login attempts</p></li>
+<li><p>Unusual activity patterns</p></li>
+<li><p>API abuse</p></li>
+<li><p>Unauthorized access attempts</p></li>
+<li><p>Data export activities</p></li>
+</ul>
+</section>
+</section>
+<section id="related-features">
+<h2>Related Features<a class="headerlink" href="#related-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#user-management.md"><span class="xref myst">User Management</span></a> - Detailed user guide</p></li>
+<li><p><a class="reference internal" href="#permissions.md"><span class="xref myst">Permissions</span></a> - Permission system details</p></li>
+<li><p><a class="reference internal" href="#background-jobs.md"><span class="xref myst">Background Jobs</span></a> - Job configuration</p></li>
+<li><p><a class="reference internal" href="#system-logs.md"><span class="xref myst">System Logs</span></a> - Log analysis</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MHS (Momentum Hydraulics &amp; Seals).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

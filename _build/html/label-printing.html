@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Label Printing &mdash; MHS Warehouse Management System 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MHS Warehouse Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Label Printing</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#label-types">Label Types</a><ul>
+<li><a class="reference internal" href="#pickslip-labels">Pickslip Labels</a></li>
+<li><a class="reference internal" href="#inventory-labels">Inventory Labels</a></li>
+<li><a class="reference internal" href="#delivery-labels">Delivery Labels</a></li>
+<li><a class="reference internal" href="#production-order-labels">Production Order Labels</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#printer-configuration">Printer Configuration</a><ul>
+<li><a class="reference internal" href="#available-printers">Available Printers</a></li>
+<li><a class="reference internal" href="#printer-selection">Printer Selection</a></li>
+<li><a class="reference internal" href="#printer-status">Printer Status</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#print-history">Print History</a><ul>
+<li><a class="reference internal" href="#viewing-print-history">Viewing Print History</a></li>
+<li><a class="reference internal" href="#print-history-by-type">Print History by Type</a></li>
+<li><a class="reference internal" href="#searching-print-history">Searching Print History</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#batch-printing">Batch Printing</a><ul>
+<li><a class="reference internal" href="#pickslip-batch-printing">Pickslip Batch Printing</a></li>
+<li><a class="reference internal" href="#production-order-batch-printing">Production Order Batch Printing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#label-templates">Label Templates</a><ul>
+<li><a class="reference internal" href="#standard-templates">Standard Templates</a></li>
+<li><a class="reference internal" href="#custom-templates">Custom Templates</a></li>
+<li><a class="reference internal" href="#template-variables">Template Variables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#barcode-generation">Barcode Generation</a><ul>
+<li><a class="reference internal" href="#barcode-types-supported">Barcode Types Supported</a></li>
+<li><a class="reference internal" href="#barcode-content">Barcode Content</a></li>
+<li><a class="reference internal" href="#scanning-barcodes">Scanning Barcodes</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#print-queue-management">Print Queue Management</a><ul>
+<li><a class="reference internal" href="#viewing-print-queue">Viewing Print Queue</a></li>
+<li><a class="reference internal" href="#queue-status">Queue Status</a></li>
+<li><a class="reference internal" href="#managing-queue">Managing Queue</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#development-labels">Development Labels</a><ul>
+<li><a class="reference internal" href="#development-pickslip-labels">Development Pickslip Labels</a></li>
+<li><a class="reference internal" href="#development-inventory-labels">Development Inventory Labels</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#label-not-printing">Label Not Printing</a></li>
+<li><a class="reference internal" href="#incorrect-label-format">Incorrect Label Format</a></li>
+<li><a class="reference internal" href="#barcode-not-scanning">Barcode Not Scanning</a></li>
+<li><a class="reference internal" href="#print-queue-stuck">Print Queue Stuck</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#best-practices">Best Practices</a><ul>
+<li><a class="reference internal" href="#id1">Label Printing</a></li>
+<li><a class="reference internal" href="#label-quality">Label Quality</a></li>
+<li><a class="reference internal" href="#id2">Batch Printing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li><a class="reference internal" href="#related-features">Related Features</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MHS Warehouse Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Label Printing</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/label-printing.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="label-printing">
+<h1>Label Printing<a class="headerlink" href="#label-printing" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Label Printing system provides automated label generation for various warehouse operations including pickslips, inventory, delivery, and production orders. Labels are generated in ZPL (Zebra Programming Language) format and sent directly to network printers.</p>
+</section>
+<section id="label-types">
+<h2>Label Types<a class="headerlink" href="#label-types" title="Link to this heading"></a></h2>
+<section id="pickslip-labels">
+<h3>Pickslip Labels<a class="headerlink" href="#pickslip-labels" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Identify items to be picked for customer orders</p>
+<p><strong>Information Included</strong>:</p>
+<ul class="simple">
+<li><p>Pickslip number</p></li>
+<li><p>Customer name</p></li>
+<li><p>Part numbers and descriptions</p></li>
+<li><p>Quantities to pick</p></li>
+<li><p>Bin locations</p></li>
+<li><p>Order priority</p></li>
+</ul>
+<p><strong>How to Print</strong>:</p>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Labels &gt; Pickslip</strong></p></li>
+<li><p>Enter pickslip number</p></li>
+<li><p>Select printer</p></li>
+<li><p>Optional: Print delivery label simultaneously</p></li>
+<li><p>Optional: Print component labels</p></li>
+<li><p>Click <strong>Print</strong></p></li>
+</ol>
+</section>
+<section id="inventory-labels">
+<h3>Inventory Labels<a class="headerlink" href="#inventory-labels" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Label inventory items for storage and identification</p>
+<p><strong>Information Included</strong>:</p>
+<ul class="simple">
+<li><p>Part number</p></li>
+<li><p>Description</p></li>
+<li><p>Quantity</p></li>
+<li><p>Bin location</p></li>
+<li><p>Barcode</p></li>
+<li><p>Date printed</p></li>
+</ul>
+<p><strong>How to Print</strong>:</p>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Labels &gt; Inventory</strong></p></li>
+<li><p>Enter part number</p></li>
+<li><p>Enter quantity</p></li>
+<li><p>Enter bin location (optional)</p></li>
+<li><p>Select printer</p></li>
+<li><p>Click <strong>Print</strong></p></li>
+</ol>
+</section>
+<section id="delivery-labels">
+<h3>Delivery Labels<a class="headerlink" href="#delivery-labels" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Shipping labels for customer deliveries</p>
+<p><strong>Information Included</strong>:</p>
+<ul class="simple">
+<li><p>Customer name and address</p></li>
+<li><p>Delivery instructions</p></li>
+<li><p>Order number</p></li>
+<li><p>Number of packages</p></li>
+<li><p>Barcode</p></li>
+</ul>
+<p><strong>How to Print</strong>:</p>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Labels &gt; Delivery</strong></p></li>
+<li><p>Enter pickslip or order number</p></li>
+<li><p>System retrieves customer details</p></li>
+<li><p>Select printer</p></li>
+<li><p>Click <strong>Print</strong></p></li>
+</ol>
+</section>
+<section id="production-order-labels">
+<h3>Production Order Labels<a class="headerlink" href="#production-order-labels" title="Link to this heading"></a></h3>
+<p><strong>Purpose</strong>: Identify production orders and work instructions</p>
+<p><strong>Information Included</strong>:</p>
+<ul class="simple">
+<li><p>Production order number</p></li>
+<li><p>Product description</p></li>
+<li><p>Quantity to produce</p></li>
+<li><p>Category (SEA, FIL, HYD, etc.)</p></li>
+<li><p>Due date</p></li>
+<li><p>Barcode</p></li>
+</ul>
+<p><strong>How to Print</strong>:</p>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Labels &gt; Production</strong></p></li>
+<li><p>Enter production order number</p></li>
+<li><p>System retrieves order details</p></li>
+<li><p>Select printer</p></li>
+<li><p>Optional: Print multiple copies</p></li>
+<li><p>Optional: Split into bag labels</p></li>
+<li><p>Click <strong>Print</strong></p></li>
+</ol>
+<p><strong>Bag Split Feature</strong>:</p>
+<ul class="simple">
+<li><p>For large production runs</p></li>
+<li><p>Split into multiple bags</p></li>
+<li><p>Each bag gets unique label</p></li>
+<li><p>Tracks bag number (e.g., “Bag 1 of 5”)</p></li>
+</ul>
+</section>
+</section>
+<section id="printer-configuration">
+<h2>Printer Configuration<a class="headerlink" href="#printer-configuration" title="Link to this heading"></a></h2>
+<section id="available-printers">
+<h3>Available Printers<a class="headerlink" href="#available-printers" title="Link to this heading"></a></h3>
+<p>The system supports multiple printer types:</p>
+<p><strong>Zebra Printers</strong>:</p>
+<ul class="simple">
+<li><p>MHSZT411 (Main warehouse printer)</p></li>
+<li><p>Delivery Label Printer</p></li>
+<li><p>Network-connected via IP</p></li>
+</ul>
+<p><strong>Complypro Printers</strong>:</p>
+<ul class="simple">
+<li><p>BP530_FilterShield</p></li>
+<li><p>Used for specialized labels</p></li>
+<li><p>Template-based printing</p></li>
+</ul>
+</section>
+<section id="printer-selection">
+<h3>Printer Selection<a class="headerlink" href="#printer-selection" title="Link to this heading"></a></h3>
+<p>When printing labels:</p>
+<ol class="arabic simple">
+<li><p>Select from dropdown of configured printers</p></li>
+<li><p>System remembers last used printer</p></li>
+<li><p>Different label types may have default printers</p></li>
+<li><p>Admin can configure printer assignments</p></li>
+</ol>
+</section>
+<section id="printer-status">
+<h3>Printer Status<a class="headerlink" href="#printer-status" title="Link to this heading"></a></h3>
+<p>Check printer status:</p>
+<ul class="simple">
+<li><p>Green indicator: Printer online and ready</p></li>
+<li><p>Yellow indicator: Printer busy</p></li>
+<li><p>Red indicator: Printer offline or error</p></li>
+<li><p>View printer queue in <strong>Print Queue</strong> page</p></li>
+</ul>
+</section>
+</section>
+<section id="print-history">
+<h2>Print History<a class="headerlink" href="#print-history" title="Link to this heading"></a></h2>
+<section id="viewing-print-history">
+<h3>Viewing Print History<a class="headerlink" href="#viewing-print-history" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Dashboard</strong> to see recent print activity.</p>
+<p><strong>Recently Printed Labels</strong> section shows:</p>
+<ul class="simple">
+<li><p>Label type</p></li>
+<li><p>Timestamp</p></li>
+<li><p>User who printed</p></li>
+<li><p>Printer used</p></li>
+<li><p>Item details</p></li>
+</ul>
+</section>
+<section id="print-history-by-type">
+<h3>Print History by Type<a class="headerlink" href="#print-history-by-type" title="Link to this heading"></a></h3>
+<p>Each label type maintains separate history:</p>
+<ul class="simple">
+<li><p><strong>Pickslip History</strong> - Last 50 pickslip labels</p></li>
+<li><p><strong>Inventory History</strong> - Last 50 inventory labels</p></li>
+<li><p><strong>Production History</strong> - Last 50 production labels</p></li>
+<li><p><strong>Material History</strong> - Last 50 material labels</p></li>
+</ul>
+</section>
+<section id="searching-print-history">
+<h3>Searching Print History<a class="headerlink" href="#searching-print-history" title="Link to this heading"></a></h3>
+<p>Search capabilities:</p>
+<ul class="simple">
+<li><p>Filter by date range</p></li>
+<li><p>Filter by user</p></li>
+<li><p>Filter by printer</p></li>
+<li><p>Filter by label type</p></li>
+<li><p>Search by part number or order number</p></li>
+</ul>
+</section>
+</section>
+<section id="batch-printing">
+<h2>Batch Printing<a class="headerlink" href="#batch-printing" title="Link to this heading"></a></h2>
+<section id="pickslip-batch-printing">
+<h3>Pickslip Batch Printing<a class="headerlink" href="#pickslip-batch-printing" title="Link to this heading"></a></h3>
+<p>Print multiple pickslips at once:</p>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Pickslip &gt; Print Batch</strong></p></li>
+<li><p>Enter pickslip numbers (comma-separated or line-by-line)</p></li>
+<li><p>Select printer</p></li>
+<li><p>Choose options:</p>
+<ul class="simple">
+<li><p>Include delivery labels</p></li>
+<li><p>Include component labels</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Print Batch</strong></p></li>
+<li><p>System queues all labels</p></li>
+<li><p>View batch progress</p></li>
+</ol>
+</section>
+<section id="production-order-batch-printing">
+<h3>Production Order Batch Printing<a class="headerlink" href="#production-order-batch-printing" title="Link to this heading"></a></h3>
+<p>Print multiple production orders:</p>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Production Order Monitoring</strong></p></li>
+<li><p>Select orders to print (checkboxes)</p></li>
+<li><p>Click <strong>Print Selected</strong></p></li>
+<li><p>Choose printer</p></li>
+<li><p>Confirm batch print</p></li>
+</ol>
+</section>
+</section>
+<section id="label-templates">
+<h2>Label Templates<a class="headerlink" href="#label-templates" title="Link to this heading"></a></h2>
+<section id="standard-templates">
+<h3>Standard Templates<a class="headerlink" href="#standard-templates" title="Link to this heading"></a></h3>
+<p>The system includes pre-configured templates:</p>
+<ul class="simple">
+<li><p><strong>Pickslip Template</strong> - Standard pickslip format</p></li>
+<li><p><strong>Inventory Template</strong> - Inventory label with barcode</p></li>
+<li><p><strong>Delivery Template</strong> - Shipping label format</p></li>
+<li><p><strong>Production Template</strong> - Production order format</p></li>
+</ul>
+</section>
+<section id="custom-templates">
+<h3>Custom Templates<a class="headerlink" href="#custom-templates" title="Link to this heading"></a></h3>
+<p>Admin users can:</p>
+<ul class="simple">
+<li><p>Create custom label templates</p></li>
+<li><p>Modify existing templates</p></li>
+<li><p>Set template defaults</p></li>
+<li><p>Assign templates to divisions</p></li>
+</ul>
+</section>
+<section id="template-variables">
+<h3>Template Variables<a class="headerlink" href="#template-variables" title="Link to this heading"></a></h3>
+<p>Templates support dynamic variables:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">{PartNumber}</span></code> - Part number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{Description}</span></code> - Item description</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{Quantity}</span></code> - Quantity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{Date}</span></code> - Current date</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{OrderNumber}</span></code> - Order number</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{CustomerName}</span></code> - Customer name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">{Barcode}</span></code> - Generated barcode</p></li>
+</ul>
+</section>
+</section>
+<section id="barcode-generation">
+<h2>Barcode Generation<a class="headerlink" href="#barcode-generation" title="Link to this heading"></a></h2>
+<section id="barcode-types-supported">
+<h3>Barcode Types Supported<a class="headerlink" href="#barcode-types-supported" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Code 128</strong> - Default for most labels</p></li>
+<li><p><strong>Code 39</strong> - Alternative format</p></li>
+<li><p><strong>QR Code</strong> - For complex data</p></li>
+<li><p><strong>EAN-13</strong> - For retail products</p></li>
+</ul>
+</section>
+<section id="barcode-content">
+<h3>Barcode Content<a class="headerlink" href="#barcode-content" title="Link to this heading"></a></h3>
+<p>Barcodes typically encode:</p>
+<ul class="simple">
+<li><p>Part numbers</p></li>
+<li><p>Order numbers</p></li>
+<li><p>Serial numbers</p></li>
+<li><p>Bin locations</p></li>
+</ul>
+</section>
+<section id="scanning-barcodes">
+<h3>Scanning Barcodes<a class="headerlink" href="#scanning-barcodes" title="Link to this heading"></a></h3>
+<p>Barcodes can be scanned for:</p>
+<ul class="simple">
+<li><p>Inventory lookup</p></li>
+<li><p>Order verification</p></li>
+<li><p>Stocktake counting</p></li>
+<li><p>Counter collect pickup</p></li>
+</ul>
+</section>
+</section>
+<section id="print-queue-management">
+<h2>Print Queue Management<a class="headerlink" href="#print-queue-management" title="Link to this heading"></a></h2>
+<section id="viewing-print-queue">
+<h3>Viewing Print Queue<a class="headerlink" href="#viewing-print-queue" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Home &gt; Print Queue</strong> to see:</p>
+<ul class="simple">
+<li><p>Queued print jobs</p></li>
+<li><p>Currently printing jobs</p></li>
+<li><p>Completed jobs</p></li>
+<li><p>Failed jobs</p></li>
+</ul>
+</section>
+<section id="queue-status">
+<h3>Queue Status<a class="headerlink" href="#queue-status" title="Link to this heading"></a></h3>
+<p>Each job shows:</p>
+<ul class="simple">
+<li><p>Job ID</p></li>
+<li><p>Label type</p></li>
+<li><p>Printer name</p></li>
+<li><p>Status (Pending, Printing, Complete, Failed)</p></li>
+<li><p>Timestamp</p></li>
+<li><p>User who submitted</p></li>
+</ul>
+</section>
+<section id="managing-queue">
+<h3>Managing Queue<a class="headerlink" href="#managing-queue" title="Link to this heading"></a></h3>
+<p>Actions available:</p>
+<ul class="simple">
+<li><p><strong>Retry Failed Jobs</strong> - Resubmit failed prints</p></li>
+<li><p><strong>Cancel Pending Jobs</strong> - Remove from queue</p></li>
+<li><p><strong>View Job Details</strong> - See full job information</p></li>
+<li><p><strong>Clear Completed</strong> - Remove completed jobs from view</p></li>
+</ul>
+</section>
+</section>
+<section id="development-labels">
+<h2>Development Labels<a class="headerlink" href="#development-labels" title="Link to this heading"></a></h2>
+<section id="development-pickslip-labels">
+<h3>Development Pickslip Labels<a class="headerlink" href="#development-pickslip-labels" title="Link to this heading"></a></h3>
+<p>For development/testing purposes:</p>
+<ul class="simple">
+<li><p>Separate tracking from production labels</p></li>
+<li><p>Used in development environment</p></li>
+<li><p>Same format as production labels</p></li>
+<li><p>Tracked separately in history</p></li>
+</ul>
+</section>
+<section id="development-inventory-labels">
+<h3>Development Inventory Labels<a class="headerlink" href="#development-inventory-labels" title="Link to this heading"></a></h3>
+<p>Test inventory label printing:</p>
+<ul class="simple">
+<li><p>Validate label format</p></li>
+<li><p>Test printer connectivity</p></li>
+<li><p>Verify barcode scanning</p></li>
+<li><p>Train new users</p></li>
+</ul>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="label-not-printing">
+<h3>Label Not Printing<a class="headerlink" href="#label-not-printing" title="Link to this heading"></a></h3>
+<p>If label doesn’t print:</p>
+<ol class="arabic simple">
+<li><p>Check printer status (online/offline)</p></li>
+<li><p>Verify printer IP address is reachable</p></li>
+<li><p>Check print queue for errors</p></li>
+<li><p>Ensure printer has paper and ribbon</p></li>
+<li><p>Try different printer</p></li>
+<li><p>Contact IT if issue persists</p></li>
+</ol>
+</section>
+<section id="incorrect-label-format">
+<h3>Incorrect Label Format<a class="headerlink" href="#incorrect-label-format" title="Link to this heading"></a></h3>
+<p>If label format is wrong:</p>
+<ol class="arabic simple">
+<li><p>Verify correct template is selected</p></li>
+<li><p>Check printer configuration</p></li>
+<li><p>Ensure printer firmware is updated</p></li>
+<li><p>Review template settings</p></li>
+<li><p>Contact admin for template issues</p></li>
+</ol>
+</section>
+<section id="barcode-not-scanning">
+<h3>Barcode Not Scanning<a class="headerlink" href="#barcode-not-scanning" title="Link to this heading"></a></h3>
+<p>If barcode won’t scan:</p>
+<ol class="arabic simple">
+<li><p>Check barcode print quality</p></li>
+<li><p>Verify scanner is configured correctly</p></li>
+<li><p>Try different scanner</p></li>
+<li><p>Ensure barcode type matches scanner</p></li>
+<li><p>Reprint label if necessary</p></li>
+</ol>
+</section>
+<section id="print-queue-stuck">
+<h3>Print Queue Stuck<a class="headerlink" href="#print-queue-stuck" title="Link to this heading"></a></h3>
+<p>If print queue is stuck:</p>
+<ol class="arabic simple">
+<li><p>Check printer connectivity</p></li>
+<li><p>Clear completed jobs</p></li>
+<li><p>Retry failed jobs</p></li>
+<li><p>Restart printer if necessary</p></li>
+<li><p>Contact admin if queue remains stuck</p></li>
+</ol>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Label Printing<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Verify before printing</strong> - Check details are correct</p></li>
+<li><p><strong>Use correct printer</strong> - Select appropriate printer for label type</p></li>
+<li><p><strong>Print test labels</strong> - Test new templates before production use</p></li>
+<li><p><strong>Monitor print queue</strong> - Check for failed jobs regularly</p></li>
+<li><p><strong>Report issues promptly</strong> - Alert admin to printer problems</p></li>
+</ol>
+</section>
+<section id="label-quality">
+<h3>Label Quality<a class="headerlink" href="#label-quality" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Check printer supplies</strong> - Ensure adequate paper and ribbon</p></li>
+<li><p><strong>Clean printer regularly</strong> - Maintain print quality</p></li>
+<li><p><strong>Verify barcode quality</strong> - Test scannability</p></li>
+<li><p><strong>Use correct label stock</strong> - Use recommended label materials</p></li>
+<li><p><strong>Store labels properly</strong> - Protect from moisture and heat</p></li>
+</ol>
+</section>
+<section id="id2">
+<h3>Batch Printing<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Group similar items</strong> - Batch similar label types</p></li>
+<li><p><strong>Verify quantities</strong> - Check batch size before printing</p></li>
+<li><p><strong>Monitor progress</strong> - Watch for errors during batch</p></li>
+<li><p><strong>Handle failures</strong> - Reprint failed labels individually</p></li>
+<li><p><strong>Document batches</strong> - Note batch details for tracking</p></li>
+</ol>
+</section>
+</section>
+<section id="keyboard-shortcuts">
+<h2>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Ctrl + P</strong> - Quick print (when on label page)</p></li>
+<li><p><strong>Ctrl + Enter</strong> - Submit print form</p></li>
+<li><p><strong>Esc</strong> - Cancel print dialog</p></li>
+</ul>
+</section>
+<section id="related-features">
+<h2>Related Features<a class="headerlink" href="#related-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pickslip-lookup.md"><span class="xref myst">Pickslip Lookup</span></a> - View pickslip details</p></li>
+<li><p><a class="reference internal" href="production-monitoring.html"><span class="std std-doc">Production Monitoring</span></a> - Production order tracking</p></li>
+<li><p><a class="reference internal" href="inventory-management.html"><span class="std std-doc">Inventory Management</span></a> - Inventory operations</p></li>
+<li><p><a class="reference internal" href="administration.html"><span class="std std-doc">Admin Settings</span></a> - Printer configuration</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MHS (Momentum Hydraulics &amp; Seals).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

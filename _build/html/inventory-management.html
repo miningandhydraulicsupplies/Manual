@@ -1,0 +1,667 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inventory Management &mdash; MHS Warehouse Management System 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MHS Warehouse Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Inventory Management</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#stocktakes">Stocktakes</a><ul>
+<li><a class="reference internal" href="#creating-a-stocktake">Creating a Stocktake</a></li>
+<li><a class="reference internal" href="#stocktake-types">Stocktake Types</a></li>
+<li><a class="reference internal" href="#stocktake-status">Stocktake Status</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#adding-items-to-stocktake">Adding Items to Stocktake</a><ul>
+<li><a class="reference internal" href="#manual-item-entry">Manual Item Entry</a></li>
+<li><a class="reference internal" href="#barcode-scanning">Barcode Scanning</a></li>
+<li><a class="reference internal" href="#bulk-import">Bulk Import</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#planned-stocktakes">Planned Stocktakes</a><ul>
+<li><a class="reference internal" href="#creating-planned-stocktake">Creating Planned Stocktake</a></li>
+<li><a class="reference internal" href="#benefits-of-planned-stocktakes">Benefits of Planned Stocktakes</a></li>
+<li><a class="reference internal" href="#converting-to-in-progress">Converting to In Progress</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#counting-process">Counting Process</a><ul>
+<li><a class="reference internal" href="#best-practices">Best Practices</a></li>
+<li><a class="reference internal" href="#recording-counts">Recording Counts</a></li>
+<li><a class="reference internal" href="#handling-discrepancies">Handling Discrepancies</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stocktake-details-view">Stocktake Details View</a><ul>
+<li><a class="reference internal" href="#item-list">Item List</a></li>
+<li><a class="reference internal" href="#summary-statistics">Summary Statistics</a></li>
+<li><a class="reference internal" href="#filtering-and-sorting">Filtering and Sorting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#variance-analysis">Variance Analysis</a><ul>
+<li><a class="reference internal" href="#variance-types">Variance Types</a></li>
+<li><a class="reference internal" href="#variance-reporting">Variance Reporting</a></li>
+<li><a class="reference internal" href="#variance-approval">Variance Approval</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#completing-stocktakes">Completing Stocktakes</a><ul>
+<li><a class="reference internal" href="#finalizing-count">Finalizing Count</a></li>
+<li><a class="reference internal" href="#posting-to-erp">Posting to ERP</a></li>
+<li><a class="reference internal" href="#stocktake-archive">Stocktake Archive</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#real-time-collaboration">Real-Time Collaboration</a><ul>
+<li><a class="reference internal" href="#multi-user-counting">Multi-User Counting</a></li>
+<li><a class="reference internal" href="#live-progress-tracking">Live Progress Tracking</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integration-with-momentumpro">Integration with MomentumPro</a><ul>
+<li><a class="reference internal" href="#part-lookup">Part Lookup</a></li>
+<li><a class="reference internal" href="#stock-level-comparison">Stock Level Comparison</a></li>
+<li><a class="reference internal" href="#inventory-adjustment">Inventory Adjustment</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reporting">Reporting</a><ul>
+<li><a class="reference internal" href="#available-reports">Available Reports</a></li>
+<li><a class="reference internal" href="#exporting-data">Exporting Data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mobile-counting">Mobile Counting</a><ul>
+<li><a class="reference internal" href="#mobile-friendly-interface">Mobile-Friendly Interface</a></li>
+<li><a class="reference internal" href="#mobile-features">Mobile Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Best Practices</a><ul>
+<li><a class="reference internal" href="#planning">Planning</a></li>
+<li><a class="reference internal" href="#execution">Execution</a></li>
+<li><a class="reference internal" href="#follow-up">Follow-Up</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#part-not-found">Part Not Found</a></li>
+<li><a class="reference internal" href="#cannot-save-count">Cannot Save Count</a></li>
+<li><a class="reference internal" href="#variance-too-large">Variance Too Large</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#related-features">Related Features</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MHS Warehouse Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Inventory Management</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/inventory-management.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="inventory-management">
+<h1>Inventory Management<a class="headerlink" href="#inventory-management" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Inventory Management system provides tools for conducting stocktakes, managing inventory counts, and tracking inventory discrepancies. It integrates with MomentumPro ERP for real-time inventory verification.</p>
+</section>
+<section id="stocktakes">
+<h2>Stocktakes<a class="headerlink" href="#stocktakes" title="Link to this heading"></a></h2>
+<section id="creating-a-stocktake">
+<h3>Creating a Stocktake<a class="headerlink" href="#creating-a-stocktake" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Stocktakes</strong> from the Operations section</p></li>
+<li><p>Click <strong>Create Stocktake</strong> button</p></li>
+<li><p>Enter stocktake details:</p>
+<ul class="simple">
+<li><p><strong>Description</strong> - Purpose or location of stocktake</p></li>
+<li><p><strong>Type</strong> - Full, Partial, Cycle Count</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Create</strong></p></li>
+<li><p>Stocktake is created with unique number (e.g., ST-20260305-A1B2C3D4)</p></li>
+</ol>
+</section>
+<section id="stocktake-types">
+<h3>Stocktake Types<a class="headerlink" href="#stocktake-types" title="Link to this heading"></a></h3>
+<p><strong>Full Stocktake</strong>:</p>
+<ul class="simple">
+<li><p>Complete inventory count</p></li>
+<li><p>All items in warehouse</p></li>
+<li><p>Typically annual or semi-annual</p></li>
+</ul>
+<p><strong>Partial Stocktake</strong>:</p>
+<ul class="simple">
+<li><p>Specific area or category</p></li>
+<li><p>Targeted inventory verification</p></li>
+<li><p>More frequent</p></li>
+</ul>
+<p><strong>Cycle Count</strong>:</p>
+<ul class="simple">
+<li><p>Rotating inventory counts</p></li>
+<li><p>High-value or fast-moving items</p></li>
+<li><p>Continuous process</p></li>
+</ul>
+</section>
+<section id="stocktake-status">
+<h3>Stocktake Status<a class="headerlink" href="#stocktake-status" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Planned</strong> - Stocktake scheduled, items pre-loaded</p></li>
+<li><p><strong>In Progress</strong> - Actively counting</p></li>
+<li><p><strong>Complete</strong> - Counting finished</p></li>
+<li><p><strong>Finalized</strong> - Approved and posted to ERP</p></li>
+</ul>
+</section>
+</section>
+<section id="adding-items-to-stocktake">
+<h2>Adding Items to Stocktake<a class="headerlink" href="#adding-items-to-stocktake" title="Link to this heading"></a></h2>
+<section id="manual-item-entry">
+<h3>Manual Item Entry<a class="headerlink" href="#manual-item-entry" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Open stocktake details</p></li>
+<li><p>Click <strong>Add Item</strong> button</p></li>
+<li><p>Enter part number</p></li>
+<li><p>System looks up part details from MomentumPro</p></li>
+<li><p>Enter counted quantity</p></li>
+<li><p>Add notes if needed</p></li>
+<li><p>Click <strong>Save</strong></p></li>
+</ol>
+</section>
+<section id="barcode-scanning">
+<h3>Barcode Scanning<a class="headerlink" href="#barcode-scanning" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Open stocktake details</p></li>
+<li><p>Focus on part number field</p></li>
+<li><p>Scan barcode with scanner</p></li>
+<li><p>System auto-populates part details</p></li>
+<li><p>Enter counted quantity</p></li>
+<li><p>Press Enter to save and continue</p></li>
+</ol>
+</section>
+<section id="bulk-import">
+<h3>Bulk Import<a class="headerlink" href="#bulk-import" title="Link to this heading"></a></h3>
+<p>Import items from file:</p>
+<ol class="arabic simple">
+<li><p>Prepare CSV or Excel file with:</p>
+<ul class="simple">
+<li><p>Part number</p></li>
+<li><p>Counted quantity</p></li>
+<li><p>Bin location (optional)</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Import Items</strong></p></li>
+<li><p>Select file</p></li>
+<li><p>Review import preview</p></li>
+<li><p>Click <strong>Confirm Import</strong></p></li>
+</ol>
+</section>
+</section>
+<section id="planned-stocktakes">
+<h2>Planned Stocktakes<a class="headerlink" href="#planned-stocktakes" title="Link to this heading"></a></h2>
+<section id="creating-planned-stocktake">
+<h3>Creating Planned Stocktake<a class="headerlink" href="#creating-planned-stocktake" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Stocktakes</strong></p></li>
+<li><p>Click <strong>Upload Planned Stocktake</strong></p></li>
+<li><p>Upload PDF or Excel file with expected items</p></li>
+<li><p>System extracts part numbers</p></li>
+<li><p>Creates stocktake with pre-loaded items</p></li>
+<li><p>Status set to “Planned”</p></li>
+</ol>
+</section>
+<section id="benefits-of-planned-stocktakes">
+<h3>Benefits of Planned Stocktakes<a class="headerlink" href="#benefits-of-planned-stocktakes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Pre-loaded expected items</p></li>
+<li><p>Compare expected vs actual</p></li>
+<li><p>Identify missing items</p></li>
+<li><p>Faster counting process</p></li>
+<li><p>Better accuracy</p></li>
+</ul>
+</section>
+<section id="converting-to-in-progress">
+<h3>Converting to In Progress<a class="headerlink" href="#converting-to-in-progress" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Open planned stocktake</p></li>
+<li><p>Review pre-loaded items</p></li>
+<li><p>Click <strong>Start Counting</strong></p></li>
+<li><p>Status changes to “In Progress”</p></li>
+<li><p>Begin entering counted quantities</p></li>
+</ol>
+</section>
+</section>
+<section id="counting-process">
+<h2>Counting Process<a class="headerlink" href="#counting-process" title="Link to this heading"></a></h2>
+<section id="best-practices">
+<h3>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Organize counting area</strong> - Clear and accessible</p></li>
+<li><p><strong>Use barcode scanners</strong> - Faster and more accurate</p></li>
+<li><p><strong>Count systematically</strong> - Follow logical sequence</p></li>
+<li><p><strong>Double-check high-value items</strong> - Verify expensive items</p></li>
+<li><p><strong>Document discrepancies</strong> - Note any issues</p></li>
+<li><p><strong>Take photos</strong> - Document problem areas</p></li>
+</ol>
+</section>
+<section id="recording-counts">
+<h3>Recording Counts<a class="headerlink" href="#recording-counts" title="Link to this heading"></a></h3>
+<p>For each item:</p>
+<ol class="arabic simple">
+<li><p>Locate physical item</p></li>
+<li><p>Count quantity accurately</p></li>
+<li><p>Scan or enter part number</p></li>
+<li><p>Enter counted quantity</p></li>
+<li><p>Note bin location</p></li>
+<li><p>Add comments if needed</p></li>
+<li><p>Save and move to next item</p></li>
+</ol>
+</section>
+<section id="handling-discrepancies">
+<h3>Handling Discrepancies<a class="headerlink" href="#handling-discrepancies" title="Link to this heading"></a></h3>
+<p>If count doesn’t match system:</p>
+<ol class="arabic simple">
+<li><p>Recount the item</p></li>
+<li><p>Check for multiple locations</p></li>
+<li><p>Verify part number is correct</p></li>
+<li><p>Document reason for discrepancy</p></li>
+<li><p>Flag for management review</p></li>
+<li><p>Add detailed notes</p></li>
+</ol>
+</section>
+</section>
+<section id="stocktake-details-view">
+<h2>Stocktake Details View<a class="headerlink" href="#stocktake-details-view" title="Link to this heading"></a></h2>
+<section id="item-list">
+<h3>Item List<a class="headerlink" href="#item-list" title="Link to this heading"></a></h3>
+<p>View all items in stocktake:</p>
+<ul class="simple">
+<li><p>Part number and description</p></li>
+<li><p>Expected quantity (if planned)</p></li>
+<li><p>Counted quantity</p></li>
+<li><p>Variance (difference)</p></li>
+<li><p>Bin location</p></li>
+<li><p>Notes</p></li>
+<li><p>Counted by and timestamp</p></li>
+</ul>
+</section>
+<section id="summary-statistics">
+<h3>Summary Statistics<a class="headerlink" href="#summary-statistics" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Total Items</strong> - Number of items counted</p></li>
+<li><p><strong>Items with Variance</strong> - Items with discrepancies</p></li>
+<li><p><strong>Total Variance Value</strong> - Dollar value of variances</p></li>
+<li><p><strong>Completion Percentage</strong> - Progress indicator</p></li>
+</ul>
+</section>
+<section id="filtering-and-sorting">
+<h3>Filtering and Sorting<a class="headerlink" href="#filtering-and-sorting" title="Link to this heading"></a></h3>
+<p>Filter items by:</p>
+<ul class="simple">
+<li><p>Counted vs not counted</p></li>
+<li><p>Items with variance</p></li>
+<li><p>Specific bin location</p></li>
+<li><p>Part number range</p></li>
+</ul>
+<p>Sort by:</p>
+<ul class="simple">
+<li><p>Part number</p></li>
+<li><p>Variance amount</p></li>
+<li><p>Counted date</p></li>
+<li><p>Bin location</p></li>
+</ul>
+</section>
+</section>
+<section id="variance-analysis">
+<h2>Variance Analysis<a class="headerlink" href="#variance-analysis" title="Link to this heading"></a></h2>
+<section id="variance-types">
+<h3>Variance Types<a class="headerlink" href="#variance-types" title="Link to this heading"></a></h3>
+<p><strong>Positive Variance</strong>:</p>
+<ul class="simple">
+<li><p>More stock than expected</p></li>
+<li><p>Potential data entry errors</p></li>
+<li><p>Unreported receipts</p></li>
+<li><p>Misplaced items found</p></li>
+</ul>
+<p><strong>Negative Variance</strong>:</p>
+<ul class="simple">
+<li><p>Less stock than expected</p></li>
+<li><p>Potential shrinkage</p></li>
+<li><p>Unreported usage</p></li>
+<li><p>Misplaced items</p></li>
+</ul>
+</section>
+<section id="variance-reporting">
+<h3>Variance Reporting<a class="headerlink" href="#variance-reporting" title="Link to this heading"></a></h3>
+<p>Generate variance reports:</p>
+<ol class="arabic simple">
+<li><p>Open completed stocktake</p></li>
+<li><p>Click <strong>Variance Report</strong></p></li>
+<li><p>Review all discrepancies</p></li>
+<li><p>Export to Excel</p></li>
+<li><p>Investigate significant variances</p></li>
+</ol>
+</section>
+<section id="variance-approval">
+<h3>Variance Approval<a class="headerlink" href="#variance-approval" title="Link to this heading"></a></h3>
+<p>For items with variance:</p>
+<ol class="arabic simple">
+<li><p>Review variance reason</p></li>
+<li><p>Verify count is accurate</p></li>
+<li><p>Approve or reject variance</p></li>
+<li><p>Add approval notes</p></li>
+<li><p>Mark as reviewed</p></li>
+</ol>
+</section>
+</section>
+<section id="completing-stocktakes">
+<h2>Completing Stocktakes<a class="headerlink" href="#completing-stocktakes" title="Link to this heading"></a></h2>
+<section id="finalizing-count">
+<h3>Finalizing Count<a class="headerlink" href="#finalizing-count" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Ensure all items counted</p></li>
+<li><p>Review variance report</p></li>
+<li><p>Resolve any issues</p></li>
+<li><p>Click <strong>Complete Stocktake</strong></p></li>
+<li><p>Status changes to “Complete”</p></li>
+</ol>
+</section>
+<section id="posting-to-erp">
+<h3>Posting to ERP<a class="headerlink" href="#posting-to-erp" title="Link to this heading"></a></h3>
+<p>After completion:</p>
+<ol class="arabic simple">
+<li><p>Review final counts</p></li>
+<li><p>Get management approval</p></li>
+<li><p>Click <strong>Post to MomentumPro</strong></p></li>
+<li><p>System updates inventory levels</p></li>
+<li><p>Status changes to “Finalized”</p></li>
+<li><p>Audit trail created</p></li>
+</ol>
+</section>
+<section id="stocktake-archive">
+<h3>Stocktake Archive<a class="headerlink" href="#stocktake-archive" title="Link to this heading"></a></h3>
+<p>Finalized stocktakes:</p>
+<ul class="simple">
+<li><p>Archived for reference</p></li>
+<li><p>Cannot be modified</p></li>
+<li><p>Available for reporting</p></li>
+<li><p>Retained per policy</p></li>
+</ul>
+</section>
+</section>
+<section id="real-time-collaboration">
+<h2>Real-Time Collaboration<a class="headerlink" href="#real-time-collaboration" title="Link to this heading"></a></h2>
+<section id="multi-user-counting">
+<h3>Multi-User Counting<a class="headerlink" href="#multi-user-counting" title="Link to this heading"></a></h3>
+<p>Multiple users can count simultaneously:</p>
+<ul class="simple">
+<li><p>Real-time updates via SignalR</p></li>
+<li><p>See who is counting what</p></li>
+<li><p>Avoid duplicate counts</p></li>
+<li><p>Coordinate efficiently</p></li>
+</ul>
+</section>
+<section id="live-progress-tracking">
+<h3>Live Progress Tracking<a class="headerlink" href="#live-progress-tracking" title="Link to this heading"></a></h3>
+<p>Monitor stocktake progress:</p>
+<ul class="simple">
+<li><p>Items counted vs remaining</p></li>
+<li><p>Users currently active</p></li>
+<li><p>Completion percentage</p></li>
+<li><p>Estimated time to complete</p></li>
+</ul>
+</section>
+</section>
+<section id="integration-with-momentumpro">
+<h2>Integration with MomentumPro<a class="headerlink" href="#integration-with-momentumpro" title="Link to this heading"></a></h2>
+<section id="part-lookup">
+<h3>Part Lookup<a class="headerlink" href="#part-lookup" title="Link to this heading"></a></h3>
+<p>System automatically:</p>
+<ul class="simple">
+<li><p>Retrieves part descriptions</p></li>
+<li><p>Gets current stock levels</p></li>
+<li><p>Fetches bin locations</p></li>
+<li><p>Shows unit of measure</p></li>
+<li><p>Displays part images</p></li>
+</ul>
+</section>
+<section id="stock-level-comparison">
+<h3>Stock Level Comparison<a class="headerlink" href="#stock-level-comparison" title="Link to this heading"></a></h3>
+<p>Compare counts to system:</p>
+<ul class="simple">
+<li><p>Expected quantity from ERP</p></li>
+<li><p>Counted quantity</p></li>
+<li><p>Variance calculation</p></li>
+<li><p>Percentage difference</p></li>
+</ul>
+</section>
+<section id="inventory-adjustment">
+<h3>Inventory Adjustment<a class="headerlink" href="#inventory-adjustment" title="Link to this heading"></a></h3>
+<p>After posting:</p>
+<ul class="simple">
+<li><p>Inventory levels updated</p></li>
+<li><p>Transactions recorded</p></li>
+<li><p>Audit trail maintained</p></li>
+<li><p>Reports generated</p></li>
+</ul>
+</section>
+</section>
+<section id="reporting">
+<h2>Reporting<a class="headerlink" href="#reporting" title="Link to this heading"></a></h2>
+<section id="available-reports">
+<h3>Available Reports<a class="headerlink" href="#available-reports" title="Link to this heading"></a></h3>
+<p><strong>Stocktake Summary</strong>:</p>
+<ul class="simple">
+<li><p>Overview of stocktake</p></li>
+<li><p>Total items and values</p></li>
+<li><p>Variance summary</p></li>
+<li><p>Completion status</p></li>
+</ul>
+<p><strong>Variance Report</strong>:</p>
+<ul class="simple">
+<li><p>All items with discrepancies</p></li>
+<li><p>Variance amounts</p></li>
+<li><p>Percentage differences</p></li>
+<li><p>Investigation notes</p></li>
+</ul>
+<p><strong>Bin Location Report</strong>:</p>
+<ul class="simple">
+<li><p>Items by bin location</p></li>
+<li><p>Location accuracy</p></li>
+<li><p>Misplaced items</p></li>
+</ul>
+<p><strong>Historical Comparison</strong>:</p>
+<ul class="simple">
+<li><p>Compare multiple stocktakes</p></li>
+<li><p>Trend analysis</p></li>
+<li><p>Recurring issues</p></li>
+</ul>
+</section>
+<section id="exporting-data">
+<h3>Exporting Data<a class="headerlink" href="#exporting-data" title="Link to this heading"></a></h3>
+<p>Export options:</p>
+<ul class="simple">
+<li><p><strong>Excel</strong> - Detailed spreadsheet</p></li>
+<li><p><strong>CSV</strong> - Raw data</p></li>
+<li><p><strong>PDF</strong> - Formatted report</p></li>
+</ul>
+</section>
+</section>
+<section id="mobile-counting">
+<h2>Mobile Counting<a class="headerlink" href="#mobile-counting" title="Link to this heading"></a></h2>
+<section id="mobile-friendly-interface">
+<h3>Mobile-Friendly Interface<a class="headerlink" href="#mobile-friendly-interface" title="Link to this heading"></a></h3>
+<p>The stocktake interface is optimized for:</p>
+<ul class="simple">
+<li><p>Tablets</p></li>
+<li><p>Mobile phones</p></li>
+<li><p>Barcode scanners</p></li>
+<li><p>Touch input</p></li>
+</ul>
+</section>
+<section id="mobile-features">
+<h3>Mobile Features<a class="headerlink" href="#mobile-features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Large input fields</p></li>
+<li><p>Quick entry mode</p></li>
+<li><p>Offline capability (planned)</p></li>
+<li><p>Camera for photos</p></li>
+</ul>
+</section>
+</section>
+<section id="id1">
+<h2>Best Practices<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<section id="planning">
+<h3>Planning<a class="headerlink" href="#planning" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Schedule appropriately</strong> - Avoid busy periods</p></li>
+<li><p><strong>Communicate clearly</strong> - Inform all stakeholders</p></li>
+<li><p><strong>Prepare materials</strong> - Scanners, tablets, printouts</p></li>
+<li><p><strong>Assign areas</strong> - Divide warehouse logically</p></li>
+<li><p><strong>Set deadlines</strong> - Establish completion timeline</p></li>
+</ol>
+</section>
+<section id="execution">
+<h3>Execution<a class="headerlink" href="#execution" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Start early</strong> - Allow adequate time</p></li>
+<li><p><strong>Count systematically</strong> - Follow planned sequence</p></li>
+<li><p><strong>Use technology</strong> - Scanners and tablets</p></li>
+<li><p><strong>Double-check</strong> - Verify high-value items</p></li>
+<li><p><strong>Document issues</strong> - Note problems immediately</p></li>
+</ol>
+</section>
+<section id="follow-up">
+<h3>Follow-Up<a class="headerlink" href="#follow-up" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Review variances</strong> - Investigate discrepancies</p></li>
+<li><p><strong>Update procedures</strong> - Improve based on findings</p></li>
+<li><p><strong>Train staff</strong> - Address knowledge gaps</p></li>
+<li><p><strong>Adjust inventory</strong> - Post corrections promptly</p></li>
+<li><p><strong>Plan next stocktake</strong> - Schedule regular counts</p></li>
+</ol>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="part-not-found">
+<h3>Part Not Found<a class="headerlink" href="#part-not-found" title="Link to this heading"></a></h3>
+<p>If part number not found:</p>
+<ol class="arabic simple">
+<li><p>Verify part number is correct</p></li>
+<li><p>Check for typos or extra characters</p></li>
+<li><p>Try alternate part numbers</p></li>
+<li><p>Check if part is obsolete</p></li>
+<li><p>Contact admin to add part</p></li>
+</ol>
+</section>
+<section id="cannot-save-count">
+<h3>Cannot Save Count<a class="headerlink" href="#cannot-save-count" title="Link to this heading"></a></h3>
+<p>If unable to save:</p>
+<ol class="arabic simple">
+<li><p>Check internet connection</p></li>
+<li><p>Verify stocktake is not finalized</p></li>
+<li><p>Ensure quantity is valid number</p></li>
+<li><p>Try refreshing page</p></li>
+<li><p>Contact admin if issue persists</p></li>
+</ol>
+</section>
+<section id="variance-too-large">
+<h3>Variance Too Large<a class="headerlink" href="#variance-too-large" title="Link to this heading"></a></h3>
+<p>If variance seems incorrect:</p>
+<ol class="arabic simple">
+<li><p>Recount the item</p></li>
+<li><p>Check for multiple locations</p></li>
+<li><p>Verify unit of measure</p></li>
+<li><p>Check recent transactions</p></li>
+<li><p>Investigate with management</p></li>
+</ol>
+</section>
+</section>
+<section id="related-features">
+<h2>Related Features<a class="headerlink" href="#related-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="label-printing.html"><span class="std std-doc">Label Printing</span></a> - Print inventory labels</p></li>
+<li><p><a class="reference internal" href="order-board.html"><span class="std std-doc">Order Board</span></a> - Track stock replenishment</p></li>
+<li><p><a class="reference internal" href="administration.html"><span class="std std-doc">Admin Settings</span></a> - Configure stocktake settings</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MHS (Momentum Hydraulics &amp; Seals).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calibration Tracking &mdash; MHS Warehouse Management System 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MHS Warehouse Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Calibration Tracking</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#dashboard">Dashboard</a><ul>
+<li><a class="reference internal" href="#accessing-calibration-dashboard">Accessing Calibration Dashboard</a></li>
+<li><a class="reference internal" href="#dashboard-metrics">Dashboard Metrics</a></li>
+<li><a class="reference internal" href="#quick-views">Quick Views</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#equipment-management">Equipment Management</a><ul>
+<li><a class="reference internal" href="#adding-new-equipment">Adding New Equipment</a></li>
+<li><a class="reference internal" href="#equipment-details">Equipment Details</a></li>
+<li><a class="reference internal" href="#editing-equipment">Editing Equipment</a></li>
+<li><a class="reference internal" href="#equipment-status">Equipment Status</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#calibration-records">Calibration Records</a><ul>
+<li><a class="reference internal" href="#recording-a-calibration">Recording a Calibration</a></li>
+<li><a class="reference internal" href="#calibration-history">Calibration History</a></li>
+<li><a class="reference internal" href="#certificate-management">Certificate Management</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reminder-system">Reminder System</a><ul>
+<li><a class="reference internal" href="#configuring-reminders">Configuring Reminders</a></li>
+<li><a class="reference internal" href="#reminder-notifications">Reminder Notifications</a></li>
+<li><a class="reference internal" href="#reminder-history">Reminder History</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#customer-management">Customer Management</a><ul>
+<li><a class="reference internal" href="#customer-information">Customer Information</a></li>
+<li><a class="reference internal" href="#customer-equipment-list">Customer Equipment List</a></li>
+<li><a class="reference internal" href="#customer-notifications">Customer Notifications</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#searching-and-filtering">Searching and Filtering</a><ul>
+<li><a class="reference internal" href="#search-equipment">Search Equipment</a></li>
+<li><a class="reference internal" href="#filter-options">Filter Options</a></li>
+<li><a class="reference internal" href="#sorting">Sorting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reporting">Reporting</a><ul>
+<li><a class="reference internal" href="#available-reports">Available Reports</a></li>
+<li><a class="reference internal" href="#exporting-data">Exporting Data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#automated-processes">Automated Processes</a><ul>
+<li><a class="reference internal" href="#background-services">Background Services</a></li>
+<li><a class="reference internal" href="#daily-reminder-processing">Daily Reminder Processing</a></li>
+<li><a class="reference internal" href="#status-updates">Status Updates</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#best-practices">Best Practices</a><ul>
+<li><a class="reference internal" href="#equipment-setup">Equipment Setup</a></li>
+<li><a class="reference internal" href="#calibration-recording">Calibration Recording</a></li>
+<li><a class="reference internal" href="#customer-communication">Customer Communication</a></li>
+<li><a class="reference internal" href="#maintenance">Maintenance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#reminder-not-sent">Reminder Not Sent</a></li>
+<li><a class="reference internal" href="#certificate-upload-failed">Certificate Upload Failed</a></li>
+<li><a class="reference internal" href="#incorrect-due-date">Incorrect Due Date</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integration">Integration</a><ul>
+<li><a class="reference internal" href="#customer-database">Customer Database</a></li>
+<li><a class="reference internal" href="#email-system">Email System</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#related-features">Related Features</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MHS Warehouse Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Calibration Tracking</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/calibration-tracking.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="calibration-tracking">
+<h1>Calibration Tracking<a class="headerlink" href="#calibration-tracking" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Calibration Tracking system manages equipment calibration schedules, certificates, and reminders for customer-owned equipment. It ensures compliance with calibration requirements and provides automated notifications for upcoming calibrations.</p>
+</section>
+<section id="dashboard">
+<h2>Dashboard<a class="headerlink" href="#dashboard" title="Link to this heading"></a></h2>
+<section id="accessing-calibration-dashboard">
+<h3>Accessing Calibration Dashboard<a class="headerlink" href="#accessing-calibration-dashboard" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Calibration Tracking</strong> from the Operations section.</p>
+</section>
+<section id="dashboard-metrics">
+<h3>Dashboard Metrics<a class="headerlink" href="#dashboard-metrics" title="Link to this heading"></a></h3>
+<p>The dashboard displays:</p>
+<ul class="simple">
+<li><p><strong>Total Equipment</strong> - All tracked equipment</p></li>
+<li><p><strong>Active Equipment</strong> - Currently in service</p></li>
+<li><p><strong>Due Soon</strong> - Calibrations due within 30 days</p></li>
+<li><p><strong>Overdue</strong> - Equipment past calibration date</p></li>
+<li><p><strong>Calibrations This Month</strong> - Scheduled for current month</p></li>
+<li><p><strong>Upcoming Reminders</strong> - Pending reminder notifications</p></li>
+</ul>
+</section>
+<section id="quick-views">
+<h3>Quick Views<a class="headerlink" href="#quick-views" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Equipment Due Soon</strong> - Top 10 items needing calibration</p></li>
+<li><p><strong>Overdue Equipment</strong> - All overdue items</p></li>
+<li><p><strong>Recent Calibrations</strong> - Last 10 calibrations performed</p></li>
+<li><p><strong>Upcoming Calibrations</strong> - Next 30 days schedule</p></li>
+</ul>
+</section>
+</section>
+<section id="equipment-management">
+<h2>Equipment Management<a class="headerlink" href="#equipment-management" title="Link to this heading"></a></h2>
+<section id="adding-new-equipment">
+<h3>Adding New Equipment<a class="headerlink" href="#adding-new-equipment" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Calibration &gt; Equipment</strong></p></li>
+<li><p>Click <strong>Add Equipment</strong> button</p></li>
+<li><p>Fill in equipment details:</p></li>
+</ol>
+<p><strong>Required Fields</strong>:</p>
+<ul class="simple">
+<li><p><strong>Customer</strong> - Select from customer list</p></li>
+<li><p><strong>Equipment Type</strong> - Type of equipment (Flowmeter, Gauge, etc.)</p></li>
+<li><p><strong>Serial Number</strong> - Unique equipment identifier</p></li>
+<li><p><strong>Calibration Interval</strong> - Months between calibrations</p></li>
+</ul>
+<p><strong>Optional Fields</strong>:</p>
+<ul class="simple">
+<li><p><strong>Manufacturer</strong> - Equipment manufacturer</p></li>
+<li><p><strong>Model</strong> - Model number</p></li>
+<li><p><strong>Description</strong> - Additional details</p></li>
+<li><p><strong>Purchase Date</strong> - When equipment was purchased</p></li>
+<li><p><strong>Invoice Number</strong> - Purchase invoice reference</p></li>
+<li><p><strong>Sales Order Number</strong> - Original sales order</p></li>
+<li><p><strong>Location</strong> - Where equipment is installed</p></li>
+<li><p><strong>Status</strong> - Active, Inactive, Retired</p></li>
+<li><p><strong>Notes</strong> - Additional information</p></li>
+</ul>
+<ol class="arabic simple" start="4">
+<li><p>Click <strong>Save</strong></p></li>
+</ol>
+</section>
+<section id="equipment-details">
+<h3>Equipment Details<a class="headerlink" href="#equipment-details" title="Link to this heading"></a></h3>
+<p>View complete equipment information:</p>
+<ul class="simple">
+<li><p>Equipment specifications</p></li>
+<li><p>Customer information</p></li>
+<li><p>Calibration history</p></li>
+<li><p>Uploaded certificates</p></li>
+<li><p>Reminder settings</p></li>
+<li><p>Status and location</p></li>
+</ul>
+</section>
+<section id="editing-equipment">
+<h3>Editing Equipment<a class="headerlink" href="#editing-equipment" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to equipment list</p></li>
+<li><p>Click <strong>Edit</strong> on desired equipment</p></li>
+<li><p>Modify fields as needed</p></li>
+<li><p>Click <strong>Save Changes</strong></p></li>
+</ol>
+</section>
+<section id="equipment-status">
+<h3>Equipment Status<a class="headerlink" href="#equipment-status" title="Link to this heading"></a></h3>
+<p><strong>Active</strong> - Equipment in service, calibrations tracked
+<strong>Inactive</strong> - Equipment not in use, no reminders sent
+<strong>Retired</strong> - Equipment decommissioned, archived</p>
+</section>
+</section>
+<section id="calibration-records">
+<h2>Calibration Records<a class="headerlink" href="#calibration-records" title="Link to this heading"></a></h2>
+<section id="recording-a-calibration">
+<h3>Recording a Calibration<a class="headerlink" href="#recording-a-calibration" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Open equipment details</p></li>
+<li><p>Click <strong>Record Calibration</strong> button</p></li>
+<li><p>Enter calibration details:</p>
+<ul class="simple">
+<li><p><strong>Calibration Date</strong> - When calibration was performed</p></li>
+<li><p><strong>Certificate Number</strong> - Calibration certificate reference</p></li>
+<li><p><strong>Performed By</strong> - Technician or company</p></li>
+<li><p><strong>Next Due Date</strong> - Calculated automatically or manual entry</p></li>
+<li><p><strong>Results</strong> - Pass/Fail/Conditional</p></li>
+<li><p><strong>Notes</strong> - Calibration notes</p></li>
+<li><p><strong>Certificate File</strong> - Upload PDF certificate</p></li>
+</ul>
+</li>
+<li><p>Click <strong>Save Calibration</strong></p></li>
+</ol>
+</section>
+<section id="calibration-history">
+<h3>Calibration History<a class="headerlink" href="#calibration-history" title="Link to this heading"></a></h3>
+<p>View complete calibration history:</p>
+<ul class="simple">
+<li><p>All past calibrations</p></li>
+<li><p>Dates and certificate numbers</p></li>
+<li><p>Who performed calibration</p></li>
+<li><p>Results and notes</p></li>
+<li><p>Uploaded certificates</p></li>
+<li><p>Next due dates</p></li>
+</ul>
+</section>
+<section id="certificate-management">
+<h3>Certificate Management<a class="headerlink" href="#certificate-management" title="Link to this heading"></a></h3>
+<p><strong>Uploading Certificates</strong>:</p>
+<ol class="arabic simple">
+<li><p>Record calibration or edit existing</p></li>
+<li><p>Click <strong>Upload Certificate</strong></p></li>
+<li><p>Select PDF file</p></li>
+<li><p>File is stored securely</p></li>
+<li><p>Accessible from equipment details</p></li>
+</ol>
+<p><strong>Downloading Certificates</strong>:</p>
+<ol class="arabic simple">
+<li><p>Open equipment details</p></li>
+<li><p>View calibration history</p></li>
+<li><p>Click certificate link</p></li>
+<li><p>PDF downloads automatically</p></li>
+</ol>
+<p><strong>Certificate Storage</strong>:</p>
+<ul class="simple">
+<li><p>Stored in secure file system</p></li>
+<li><p>Organized by equipment and date</p></li>
+<li><p>Backed up regularly</p></li>
+<li><p>Accessible to authorized users</p></li>
+</ul>
+</section>
+</section>
+<section id="reminder-system">
+<h2>Reminder System<a class="headerlink" href="#reminder-system" title="Link to this heading"></a></h2>
+<section id="configuring-reminders">
+<h3>Configuring Reminders<a class="headerlink" href="#configuring-reminders" title="Link to this heading"></a></h3>
+<p>For each equipment item:</p>
+<ol class="arabic simple">
+<li><p>Edit equipment details</p></li>
+<li><p>Enable reminders checkbox</p></li>
+<li><p>Set reminder days before due date</p></li>
+<li><p>Save settings</p></li>
+</ol>
+<p><strong>Default Reminder Schedule</strong>:</p>
+<ul class="simple">
+<li><p>30 days before due</p></li>
+<li><p>14 days before due</p></li>
+<li><p>7 days before due</p></li>
+<li><p>On due date</p></li>
+<li><p>7 days after due (overdue)</p></li>
+<li><p>14 days after due (overdue)</p></li>
+</ul>
+</section>
+<section id="reminder-notifications">
+<h3>Reminder Notifications<a class="headerlink" href="#reminder-notifications" title="Link to this heading"></a></h3>
+<p>Reminders are sent via email to:</p>
+<ul class="simple">
+<li><p>Customer contact (if configured)</p></li>
+<li><p>Internal calibration coordinator</p></li>
+<li><p>BCC to warehouse email</p></li>
+</ul>
+<p><strong>Reminder Content</strong>:</p>
+<ul class="simple">
+<li><p>Equipment details</p></li>
+<li><p>Current calibration status</p></li>
+<li><p>Due date</p></li>
+<li><p>Customer information</p></li>
+<li><p>Contact information for scheduling</p></li>
+</ul>
+</section>
+<section id="reminder-history">
+<h3>Reminder History<a class="headerlink" href="#reminder-history" title="Link to this heading"></a></h3>
+<p>Track all sent reminders:</p>
+<ul class="simple">
+<li><p>Date and time sent</p></li>
+<li><p>Recipients</p></li>
+<li><p>Reminder type (upcoming/overdue)</p></li>
+<li><p>Email delivery status</p></li>
+</ul>
+</section>
+</section>
+<section id="customer-management">
+<h2>Customer Management<a class="headerlink" href="#customer-management" title="Link to this heading"></a></h2>
+<section id="customer-information">
+<h3>Customer Information<a class="headerlink" href="#customer-information" title="Link to this heading"></a></h3>
+<p>For each customer:</p>
+<ul class="simple">
+<li><p>Company name</p></li>
+<li><p>Contact person</p></li>
+<li><p>Email address</p></li>
+<li><p>Phone number</p></li>
+<li><p>Address</p></li>
+<li><p>Equipment list</p></li>
+</ul>
+</section>
+<section id="customer-equipment-list">
+<h3>Customer Equipment List<a class="headerlink" href="#customer-equipment-list" title="Link to this heading"></a></h3>
+<p>View all equipment for a customer:</p>
+<ul class="simple">
+<li><p>Filter by customer</p></li>
+<li><p>See all calibration statuses</p></li>
+<li><p>Bulk operations available</p></li>
+<li><p>Export customer equipment list</p></li>
+</ul>
+</section>
+<section id="customer-notifications">
+<h3>Customer Notifications<a class="headerlink" href="#customer-notifications" title="Link to this heading"></a></h3>
+<p>Configure per customer:</p>
+<ul class="simple">
+<li><p>Enable/disable notifications</p></li>
+<li><p>Custom reminder schedule</p></li>
+<li><p>Multiple contact emails</p></li>
+<li><p>Notification preferences</p></li>
+</ul>
+</section>
+</section>
+<section id="searching-and-filtering">
+<h2>Searching and Filtering<a class="headerlink" href="#searching-and-filtering" title="Link to this heading"></a></h2>
+<section id="search-equipment">
+<h3>Search Equipment<a class="headerlink" href="#search-equipment" title="Link to this heading"></a></h3>
+<p>Search by:</p>
+<ul class="simple">
+<li><p>Serial number</p></li>
+<li><p>Equipment type</p></li>
+<li><p>Customer name</p></li>
+<li><p>Manufacturer</p></li>
+<li><p>Model number</p></li>
+<li><p>Certificate number</p></li>
+</ul>
+</section>
+<section id="filter-options">
+<h3>Filter Options<a class="headerlink" href="#filter-options" title="Link to this heading"></a></h3>
+<p>Filter equipment by:</p>
+<ul class="simple">
+<li><p><strong>Customer</strong> - Specific customer</p></li>
+<li><p><strong>Equipment Type</strong> - Type of equipment</p></li>
+<li><p><strong>Status</strong> - Active, Inactive, Retired</p></li>
+<li><p><strong>Calibration Status</strong> - Current, Due Soon, Overdue</p></li>
+<li><p><strong>Location</strong> - Equipment location</p></li>
+</ul>
+</section>
+<section id="sorting">
+<h3>Sorting<a class="headerlink" href="#sorting" title="Link to this heading"></a></h3>
+<p>Sort equipment list by:</p>
+<ul class="simple">
+<li><p>Next due date</p></li>
+<li><p>Last calibration date</p></li>
+<li><p>Customer name</p></li>
+<li><p>Equipment type</p></li>
+<li><p>Serial number</p></li>
+</ul>
+</section>
+</section>
+<section id="reporting">
+<h2>Reporting<a class="headerlink" href="#reporting" title="Link to this heading"></a></h2>
+<section id="available-reports">
+<h3>Available Reports<a class="headerlink" href="#available-reports" title="Link to this heading"></a></h3>
+<p><strong>Equipment Status Report</strong>:</p>
+<ul class="simple">
+<li><p>All equipment with current status</p></li>
+<li><p>Due dates and overdue items</p></li>
+<li><p>Export to Excel</p></li>
+</ul>
+<p><strong>Calibration Schedule Report</strong>:</p>
+<ul class="simple">
+<li><p>Upcoming calibrations by month</p></li>
+<li><p>Resource planning</p></li>
+<li><p>Customer breakdown</p></li>
+</ul>
+<p><strong>Overdue Equipment Report</strong>:</p>
+<ul class="simple">
+<li><p>All overdue equipment</p></li>
+<li><p>Days overdue</p></li>
+<li><p>Customer contact information</p></li>
+</ul>
+<p><strong>Customer Equipment Report</strong>:</p>
+<ul class="simple">
+<li><p>Equipment by customer</p></li>
+<li><p>Calibration history</p></li>
+<li><p>Certificate status</p></li>
+</ul>
+</section>
+<section id="exporting-data">
+<h3>Exporting Data<a class="headerlink" href="#exporting-data" title="Link to this heading"></a></h3>
+<p>Export options:</p>
+<ul class="simple">
+<li><p><strong>Excel</strong> - Formatted spreadsheet</p></li>
+<li><p><strong>CSV</strong> - Raw data export</p></li>
+<li><p><strong>PDF</strong> - Formatted report</p></li>
+</ul>
+</section>
+</section>
+<section id="automated-processes">
+<h2>Automated Processes<a class="headerlink" href="#automated-processes" title="Link to this heading"></a></h2>
+<section id="background-services">
+<h3>Background Services<a class="headerlink" href="#background-services" title="Link to this heading"></a></h3>
+<p>The system automatically:</p>
+<ul class="simple">
+<li><p>Calculates next due dates</p></li>
+<li><p>Sends reminder emails</p></li>
+<li><p>Updates equipment status</p></li>
+<li><p>Tracks overdue equipment</p></li>
+<li><p>Generates daily reports</p></li>
+</ul>
+</section>
+<section id="daily-reminder-processing">
+<h3>Daily Reminder Processing<a class="headerlink" href="#daily-reminder-processing" title="Link to this heading"></a></h3>
+<p>Every day at 8:00 AM (Perth time):</p>
+<ul class="simple">
+<li><p>System checks all equipment</p></li>
+<li><p>Identifies items needing reminders</p></li>
+<li><p>Sends email notifications</p></li>
+<li><p>Logs reminder activity</p></li>
+<li><p>Updates reminder history</p></li>
+</ul>
+</section>
+<section id="status-updates">
+<h3>Status Updates<a class="headerlink" href="#status-updates" title="Link to this heading"></a></h3>
+<p>Equipment status automatically updates:</p>
+<ul class="simple">
+<li><p><strong>Current</strong> - Within calibration period</p></li>
+<li><p><strong>Due Soon</strong> - Within 30 days of due date</p></li>
+<li><p><strong>Overdue</strong> - Past due date</p></li>
+<li><p><strong>Critical</strong> - More than 30 days overdue</p></li>
+</ul>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<section id="equipment-setup">
+<h3>Equipment Setup<a class="headerlink" href="#equipment-setup" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Complete all fields</strong> - Provide comprehensive information</p></li>
+<li><p><strong>Verify serial numbers</strong> - Ensure accuracy</p></li>
+<li><p><strong>Set correct intervals</strong> - Match customer requirements</p></li>
+<li><p><strong>Enable reminders</strong> - Don’t miss calibrations</p></li>
+<li><p><strong>Add notes</strong> - Document special requirements</p></li>
+</ol>
+</section>
+<section id="calibration-recording">
+<h3>Calibration Recording<a class="headerlink" href="#calibration-recording" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Record promptly</strong> - Enter calibrations immediately</p></li>
+<li><p><strong>Upload certificates</strong> - Attach PDF certificates</p></li>
+<li><p><strong>Verify dates</strong> - Check next due date calculation</p></li>
+<li><p><strong>Add notes</strong> - Document any issues or findings</p></li>
+<li><p><strong>Update status</strong> - Ensure equipment status is current</p></li>
+</ol>
+</section>
+<section id="customer-communication">
+<h3>Customer Communication<a class="headerlink" href="#customer-communication" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Proactive reminders</strong> - Send reminders early</p></li>
+<li><p><strong>Clear communication</strong> - Provide all necessary details</p></li>
+<li><p><strong>Follow up</strong> - Track response to reminders</p></li>
+<li><p><strong>Document interactions</strong> - Note all communications</p></li>
+<li><p><strong>Coordinate scheduling</strong> - Help arrange calibrations</p></li>
+</ol>
+</section>
+<section id="maintenance">
+<h3>Maintenance<a class="headerlink" href="#maintenance" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Regular reviews</strong> - Check equipment list monthly</p></li>
+<li><p><strong>Update customer info</strong> - Keep contacts current</p></li>
+<li><p><strong>Archive retired equipment</strong> - Clean up inactive items</p></li>
+<li><p><strong>Verify certificates</strong> - Ensure all certificates uploaded</p></li>
+<li><p><strong>Monitor overdue items</strong> - Follow up on overdue calibrations</p></li>
+</ol>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="reminder-not-sent">
+<h3>Reminder Not Sent<a class="headerlink" href="#reminder-not-sent" title="Link to this heading"></a></h3>
+<p>If reminder wasn’t sent:</p>
+<ol class="arabic simple">
+<li><p>Check reminder is enabled for equipment</p></li>
+<li><p>Verify customer email address</p></li>
+<li><p>Check reminder history</p></li>
+<li><p>Ensure equipment is active</p></li>
+<li><p>Contact admin if issue persists</p></li>
+</ol>
+</section>
+<section id="certificate-upload-failed">
+<h3>Certificate Upload Failed<a class="headerlink" href="#certificate-upload-failed" title="Link to this heading"></a></h3>
+<p>If certificate won’t upload:</p>
+<ol class="arabic simple">
+<li><p>Check file is PDF format</p></li>
+<li><p>Verify file size (max 10MB)</p></li>
+<li><p>Ensure stable internet connection</p></li>
+<li><p>Try different browser</p></li>
+<li><p>Contact admin if problem continues</p></li>
+</ol>
+</section>
+<section id="incorrect-due-date">
+<h3>Incorrect Due Date<a class="headerlink" href="#incorrect-due-date" title="Link to this heading"></a></h3>
+<p>If due date is wrong:</p>
+<ol class="arabic simple">
+<li><p>Check calibration interval setting</p></li>
+<li><p>Verify last calibration date</p></li>
+<li><p>Manually adjust if needed</p></li>
+<li><p>Recalculate from last calibration</p></li>
+<li><p>Document reason for adjustment</p></li>
+</ol>
+</section>
+</section>
+<section id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Link to this heading"></a></h2>
+<section id="customer-database">
+<h3>Customer Database<a class="headerlink" href="#customer-database" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Links to customer management system</p></li>
+<li><p>Syncs customer information</p></li>
+<li><p>Updates contact details</p></li>
+<li><p>Tracks customer equipment</p></li>
+</ul>
+</section>
+<section id="email-system">
+<h3>Email System<a class="headerlink" href="#email-system" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Integrates with SMTP2Go</p></li>
+<li><p>Sends automated reminders</p></li>
+<li><p>Tracks delivery status</p></li>
+<li><p>Handles bounced emails</p></li>
+</ul>
+</section>
+</section>
+<section id="related-features">
+<h2>Related Features<a class="headerlink" href="#related-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#customer-management.md"><span class="xref myst">Customer Management</span></a> - Customer database</p></li>
+<li><p><a class="reference internal" href="#notifications.md"><span class="xref myst">Notifications</span></a> - Email notification system</p></li>
+<li><p><a class="reference internal" href="administration.html"><span class="std std-doc">Admin Settings</span></a> - System configuration</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MHS (Momentum Hydraulics &amp; Seals).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

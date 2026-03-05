@@ -1,0 +1,695 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Production Order Monitoring &mdash; MHS Warehouse Management System 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MHS Warehouse Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Production Order Monitoring</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#production-dashboard">Production Dashboard</a><ul>
+<li><a class="reference internal" href="#accessing-production-monitor">Accessing Production Monitor</a></li>
+<li><a class="reference internal" href="#dashboard-metrics">Dashboard Metrics</a></li>
+<li><a class="reference internal" href="#production-order-list">Production Order List</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#order-categories">Order Categories</a><ul>
+<li><a class="reference internal" href="#category-types">Category Types</a></li>
+<li><a class="reference internal" href="#category-filtering">Category Filtering</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#order-status">Order Status</a><ul>
+<li><a class="reference internal" href="#status-types">Status Types</a></li>
+<li><a class="reference internal" href="#status-indicators">Status Indicators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#order-details">Order Details</a><ul>
+<li><a class="reference internal" href="#viewing-order-details">Viewing Order Details</a></li>
+<li><a class="reference internal" href="#order-information">Order Information</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#filtering-and-search">Filtering and Search</a><ul>
+<li><a class="reference internal" href="#filter-options">Filter Options</a></li>
+<li><a class="reference internal" href="#search-functionality">Search Functionality</a></li>
+<li><a class="reference internal" href="#sorting-options">Sorting Options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#production-labels">Production Labels</a><ul>
+<li><a class="reference internal" href="#printing-production-labels">Printing Production Labels</a></li>
+<li><a class="reference internal" href="#bag-split-feature">Bag Split Feature</a></li>
+<li><a class="reference internal" href="#label-information">Label Information</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#finalising-orders">Finalising Orders</a><ul>
+<li><a class="reference internal" href="#marking-orders-as-finalised">Marking Orders as Finalised</a></li>
+<li><a class="reference internal" href="#finalised-order-behavior">Finalised Order Behavior</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#tv-display-mode">TV Display Mode</a><ul>
+<li><a class="reference internal" href="#accessing-tv-display">Accessing TV Display</a></li>
+<li><a class="reference internal" href="#tv-display-features">TV Display Features</a></li>
+<li><a class="reference internal" href="#tv-display-configuration">TV Display Configuration</a></li>
+<li><a class="reference internal" href="#use-cases">Use Cases</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#production-workflow">Production Workflow</a><ul>
+<li><a class="reference internal" href="#typical-order-lifecycle">Typical Order Lifecycle</a></li>
+<li><a class="reference internal" href="#status-transitions">Status Transitions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#integration-with-other-systems">Integration with Other Systems</a><ul>
+<li><a class="reference internal" href="#momentumpro-erp">MomentumPro ERP</a></li>
+<li><a class="reference internal" href="#label-printing">Label Printing</a></li>
+<li><a class="reference internal" href="#inventory-system">Inventory System</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reporting">Reporting</a><ul>
+<li><a class="reference internal" href="#available-reports">Available Reports</a></li>
+<li><a class="reference internal" href="#exporting-data">Exporting Data</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#best-practices">Best Practices</a><ul>
+<li><a class="reference internal" href="#daily-monitoring">Daily Monitoring</a></li>
+<li><a class="reference internal" href="#order-management">Order Management</a></li>
+<li><a class="reference internal" href="#id1">Label Printing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#order-not-appearing">Order Not Appearing</a></li>
+<li><a class="reference internal" href="#cannot-close-order">Cannot Close Order</a></li>
+<li><a class="reference internal" href="#label-won-t-print">Label Won’t Print</a></li>
+<li><a class="reference internal" href="#incorrect-order-details">Incorrect Order Details</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li><a class="reference internal" href="#related-features">Related Features</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MHS Warehouse Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Production Order Monitoring</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/production-monitoring.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="production-order-monitoring">
+<h1>Production Order Monitoring<a class="headerlink" href="#production-order-monitoring" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Production Order Monitoring system provides real-time tracking of production orders from MomentumPro ERP. It monitors order status, tracks completion, and provides visibility into the production workflow across different categories.</p>
+</section>
+<section id="production-dashboard">
+<h2>Production Dashboard<a class="headerlink" href="#production-dashboard" title="Link to this heading"></a></h2>
+<section id="accessing-production-monitor">
+<h3>Accessing Production Monitor<a class="headerlink" href="#accessing-production-monitor" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>Production</strong> from the Operations section in the sidebar.</p>
+</section>
+<section id="dashboard-metrics">
+<h3>Dashboard Metrics<a class="headerlink" href="#dashboard-metrics" title="Link to this heading"></a></h3>
+<p>The dashboard displays:</p>
+<ul class="simple">
+<li><p><strong>Total Orders</strong> - All production orders in system</p></li>
+<li><p><strong>Open Orders</strong> - Active production orders (Status: 1)</p></li>
+<li><p><strong>Closed Orders</strong> - Completed production orders (Status: c)</p></li>
+<li><p><strong>Finalised Orders</strong> - Orders marked as finalised</p></li>
+<li><p><strong>Today’s Orders</strong> - Orders created today</p></li>
+</ul>
+</section>
+<section id="production-order-list">
+<h3>Production Order List<a class="headerlink" href="#production-order-list" title="Link to this heading"></a></h3>
+<p>Each order shows:</p>
+<ul class="simple">
+<li><p><strong>Order Number</strong> - Production order identifier</p></li>
+<li><p><strong>Description</strong> - Product or assembly description</p></li>
+<li><p><strong>Category</strong> - Product category (SEA, FIL, HYD, PRO, etc.)</p></li>
+<li><p><strong>Status</strong> - Current order status (Open/Closed)</p></li>
+<li><p><strong>Finalised</strong> - Whether order is finalised</p></li>
+<li><p><strong>Created Date</strong> - When order was created</p></li>
+<li><p><strong>Last Updated</strong> - Most recent update timestamp</p></li>
+</ul>
+</section>
+</section>
+<section id="order-categories">
+<h2>Order Categories<a class="headerlink" href="#order-categories" title="Link to this heading"></a></h2>
+<section id="category-types">
+<h3>Category Types<a class="headerlink" href="#category-types" title="Link to this heading"></a></h3>
+<p><strong>SEA (Seals)</strong>:</p>
+<ul class="simple">
+<li><p>Seal kits and assemblies</p></li>
+<li><p>O-ring products</p></li>
+<li><p>Sealing solutions</p></li>
+</ul>
+<p><strong>FIL (Filtration)</strong>:</p>
+<ul class="simple">
+<li><p>Filter assemblies</p></li>
+<li><p>Filter elements</p></li>
+<li><p>Filtration systems</p></li>
+</ul>
+<p><strong>HYD (Hydraulics)</strong>:</p>
+<ul class="simple">
+<li><p>Hydraulic assemblies</p></li>
+<li><p>Hose assemblies</p></li>
+<li><p>Hydraulic components</p></li>
+</ul>
+<p><strong>PRO (Projects)</strong>:</p>
+<ul class="simple">
+<li><p>Custom projects</p></li>
+<li><p>Special assemblies</p></li>
+<li><p>One-off productions</p></li>
+</ul>
+<p><strong>Other Categories</strong>:</p>
+<ul class="simple">
+<li><p>MAT (Materials)</p></li>
+<li><p>CON (Consumables)</p></li>
+<li><p>Custom categories as configured</p></li>
+</ul>
+</section>
+<section id="category-filtering">
+<h3>Category Filtering<a class="headerlink" href="#category-filtering" title="Link to this heading"></a></h3>
+<p>Filter production orders by category:</p>
+<ol class="arabic simple">
+<li><p>Select category from dropdown</p></li>
+<li><p>View orders for that category only</p></li>
+<li><p>Default view shows SEA category</p></li>
+<li><p>Select “All” to view all categories</p></li>
+</ol>
+</section>
+</section>
+<section id="order-status">
+<h2>Order Status<a class="headerlink" href="#order-status" title="Link to this heading"></a></h2>
+<section id="status-types">
+<h3>Status Types<a class="headerlink" href="#status-types" title="Link to this heading"></a></h3>
+<p><strong>Open (Status: 1)</strong>:</p>
+<ul class="simple">
+<li><p>Order is active</p></li>
+<li><p>Production in progress</p></li>
+<li><p>Not yet completed</p></li>
+</ul>
+<p><strong>Closed (Status: c)</strong>:</p>
+<ul class="simple">
+<li><p>Production completed</p></li>
+<li><p>Order closed in system</p></li>
+<li><p>May not be finalised</p></li>
+</ul>
+<p><strong>Finalised</strong>:</p>
+<ul class="simple">
+<li><p>Order completely finished</p></li>
+<li><p>All paperwork complete</p></li>
+<li><p>Ready for archival</p></li>
+</ul>
+</section>
+<section id="status-indicators">
+<h3>Status Indicators<a class="headerlink" href="#status-indicators" title="Link to this heading"></a></h3>
+<p>Visual indicators:</p>
+<ul class="simple">
+<li><p><strong>Green badge</strong> - Open orders</p></li>
+<li><p><strong>Blue badge</strong> - Closed orders</p></li>
+<li><p><strong>Purple badge</strong> - Finalised orders</p></li>
+<li><p><strong>Bold text</strong> - Orders updated today</p></li>
+</ul>
+</section>
+</section>
+<section id="order-details">
+<h2>Order Details<a class="headerlink" href="#order-details" title="Link to this heading"></a></h2>
+<section id="viewing-order-details">
+<h3>Viewing Order Details<a class="headerlink" href="#viewing-order-details" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Click on any order in the list</p></li>
+<li><p>Detailed view opens showing:</p>
+<ul class="simple">
+<li><p>Complete order information</p></li>
+<li><p>Product specifications</p></li>
+<li><p>Quantity details</p></li>
+<li><p>Material requirements</p></li>
+<li><p>Labor information</p></li>
+<li><p>Cost breakdown</p></li>
+<li><p>Status history</p></li>
+<li><p>Related documents</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="order-information">
+<h3>Order Information<a class="headerlink" href="#order-information" title="Link to this heading"></a></h3>
+<p><strong>Header Information</strong>:</p>
+<ul class="simple">
+<li><p>Order number</p></li>
+<li><p>Description</p></li>
+<li><p>Category</p></li>
+<li><p>Status</p></li>
+<li><p>Created date</p></li>
+<li><p>Required date</p></li>
+<li><p>Priority</p></li>
+</ul>
+<p><strong>Production Details</strong>:</p>
+<ul class="simple">
+<li><p>Quantity to produce</p></li>
+<li><p>Quantity completed</p></li>
+<li><p>Unit of measure</p></li>
+<li><p>Bill of materials</p></li>
+<li><p>Work instructions</p></li>
+<li><p>Quality requirements</p></li>
+</ul>
+<p><strong>Tracking Information</strong>:</p>
+<ul class="simple">
+<li><p>First seen in system</p></li>
+<li><p>Last updated timestamp</p></li>
+<li><p>Status change history</p></li>
+<li><p>User who created order</p></li>
+</ul>
+</section>
+</section>
+<section id="filtering-and-search">
+<h2>Filtering and Search<a class="headerlink" href="#filtering-and-search" title="Link to this heading"></a></h2>
+<section id="filter-options">
+<h3>Filter Options<a class="headerlink" href="#filter-options" title="Link to this heading"></a></h3>
+<p><strong>By Status</strong>:</p>
+<ul class="simple">
+<li><p>Open orders only</p></li>
+<li><p>Closed orders only</p></li>
+<li><p>Finalised orders only</p></li>
+<li><p>All orders</p></li>
+</ul>
+<p><strong>By Category</strong>:</p>
+<ul class="simple">
+<li><p>Select specific category</p></li>
+<li><p>View all categories</p></li>
+<li><p>Default to SEA</p></li>
+</ul>
+<p><strong>By Date</strong>:</p>
+<ul class="simple">
+<li><p>Today’s orders</p></li>
+<li><p>This week</p></li>
+<li><p>This month</p></li>
+<li><p>Custom date range</p></li>
+</ul>
+<p><strong>By Finalised Status</strong>:</p>
+<ul class="simple">
+<li><p>Finalised only</p></li>
+<li><p>Not finalised only</p></li>
+<li><p>All orders</p></li>
+</ul>
+</section>
+<section id="search-functionality">
+<h3>Search Functionality<a class="headerlink" href="#search-functionality" title="Link to this heading"></a></h3>
+<p>Search by:</p>
+<ul class="simple">
+<li><p>Order number</p></li>
+<li><p>Description</p></li>
+<li><p>Category</p></li>
+<li><p>Product code</p></li>
+</ul>
+</section>
+<section id="sorting-options">
+<h3>Sorting Options<a class="headerlink" href="#sorting-options" title="Link to this heading"></a></h3>
+<p>Sort orders by:</p>
+<ul class="simple">
+<li><p>Created date (newest first)</p></li>
+<li><p>Order number</p></li>
+<li><p>Description</p></li>
+<li><p>Status (open first)</p></li>
+<li><p>Category</p></li>
+</ul>
+</section>
+</section>
+<section id="production-labels">
+<h2>Production Labels<a class="headerlink" href="#production-labels" title="Link to this heading"></a></h2>
+<section id="printing-production-labels">
+<h3>Printing Production Labels<a class="headerlink" href="#printing-production-labels" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>From order list, click <strong>Print Label</strong> icon</p></li>
+<li><p>Or open order details and click <strong>Print Label</strong></p></li>
+<li><p>Select printer from dropdown</p></li>
+<li><p>Choose number of copies</p></li>
+<li><p>Optional: Enable bag split for large quantities</p></li>
+<li><p>Click <strong>Print</strong></p></li>
+</ol>
+</section>
+<section id="bag-split-feature">
+<h3>Bag Split Feature<a class="headerlink" href="#bag-split-feature" title="Link to this heading"></a></h3>
+<p>For large production runs:</p>
+<ol class="arabic simple">
+<li><p>Enable “Split into bags” option</p></li>
+<li><p>Enter quantity per bag</p></li>
+<li><p>System calculates number of bags</p></li>
+<li><p>Each bag gets unique label</p></li>
+<li><p>Labels show “Bag X of Y”</p></li>
+</ol>
+<p><strong>Example</strong>:</p>
+<ul class="simple">
+<li><p>Production order: 100 units</p></li>
+<li><p>Bag size: 25 units</p></li>
+<li><p>Result: 4 labels (Bag 1 of 4, Bag 2 of 4, etc.)</p></li>
+</ul>
+</section>
+<section id="label-information">
+<h3>Label Information<a class="headerlink" href="#label-information" title="Link to this heading"></a></h3>
+<p>Production labels include:</p>
+<ul class="simple">
+<li><p>Production order number</p></li>
+<li><p>Product description</p></li>
+<li><p>Quantity</p></li>
+<li><p>Category</p></li>
+<li><p>Due date</p></li>
+<li><p>Barcode for scanning</p></li>
+<li><p>Bag information (if split)</p></li>
+</ul>
+</section>
+</section>
+<section id="finalising-orders">
+<h2>Finalising Orders<a class="headerlink" href="#finalising-orders" title="Link to this heading"></a></h2>
+<section id="marking-orders-as-finalised">
+<h3>Marking Orders as Finalised<a class="headerlink" href="#marking-orders-as-finalised" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Open order details</p></li>
+<li><p>Click <strong>Mark as Finalised</strong> button</p></li>
+<li><p>Confirm action</p></li>
+<li><p>Order status updates to finalised</p></li>
+<li><p>Order appears in finalised list</p></li>
+</ol>
+</section>
+<section id="finalised-order-behavior">
+<h3>Finalised Order Behavior<a class="headerlink" href="#finalised-order-behavior" title="Link to this heading"></a></h3>
+<p>Finalised orders:</p>
+<ul class="simple">
+<li><p>Remain visible for current day</p></li>
+<li><p>Archived after midnight</p></li>
+<li><p>Can be searched in history</p></li>
+<li><p>Included in reports</p></li>
+<li><p>Cannot be un-finalised (contact admin)</p></li>
+</ul>
+</section>
+</section>
+<section id="tv-display-mode">
+<h2>TV Display Mode<a class="headerlink" href="#tv-display-mode" title="Link to this heading"></a></h2>
+<section id="accessing-tv-display">
+<h3>Accessing TV Display<a class="headerlink" href="#accessing-tv-display" title="Link to this heading"></a></h3>
+<p>Navigate to <strong>TV Displays &gt; Production Orders TV</strong> from sidebar.</p>
+</section>
+<section id="tv-display-features">
+<h3>TV Display Features<a class="headerlink" href="#tv-display-features" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Full-screen view</strong> - Optimized for large displays</p></li>
+<li><p><strong>Auto-refresh</strong> - Updates every 30 seconds</p></li>
+<li><p><strong>Color-coded status</strong> - Easy visual identification</p></li>
+<li><p><strong>Category filtering</strong> - Show specific categories</p></li>
+<li><p><strong>Minimal interface</strong> - Focus on essential information</p></li>
+</ul>
+</section>
+<section id="tv-display-configuration">
+<h3>TV Display Configuration<a class="headerlink" href="#tv-display-configuration" title="Link to this heading"></a></h3>
+<p>Configure display:</p>
+<ul class="simple">
+<li><p>Select categories to show</p></li>
+<li><p>Set refresh interval</p></li>
+<li><p>Choose sort order</p></li>
+<li><p>Enable/disable finalised orders</p></li>
+<li><p>Adjust font size</p></li>
+</ul>
+</section>
+<section id="use-cases">
+<h3>Use Cases<a class="headerlink" href="#use-cases" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Production floor displays</strong> - Show current orders</p></li>
+<li><p><strong>Management overview</strong> - Monitor production status</p></li>
+<li><p><strong>Team coordination</strong> - Shared visibility</p></li>
+<li><p><strong>Status boards</strong> - Real-time updates</p></li>
+</ul>
+</section>
+</section>
+<section id="production-workflow">
+<h2>Production Workflow<a class="headerlink" href="#production-workflow" title="Link to this heading"></a></h2>
+<section id="typical-order-lifecycle">
+<h3>Typical Order Lifecycle<a class="headerlink" href="#typical-order-lifecycle" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Order Created</strong> - New production order entered</p></li>
+<li><p><strong>Materials Allocated</strong> - Materials assigned to order</p></li>
+<li><p><strong>Production Started</strong> - Work begins</p></li>
+<li><p><strong>In Progress</strong> - Order status remains open</p></li>
+<li><p><strong>Production Completed</strong> - Order closed</p></li>
+<li><p><strong>Quality Check</strong> - Verification performed</p></li>
+<li><p><strong>Order Finalised</strong> - All steps complete</p></li>
+</ol>
+</section>
+<section id="status-transitions">
+<h3>Status Transitions<a class="headerlink" href="#status-transitions" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>New → Open</strong> - Order activated</p></li>
+<li><p><strong>Open → Closed</strong> - Production completed</p></li>
+<li><p><strong>Closed → Finalised</strong> - All paperwork complete</p></li>
+</ul>
+</section>
+</section>
+<section id="integration-with-other-systems">
+<h2>Integration with Other Systems<a class="headerlink" href="#integration-with-other-systems" title="Link to this heading"></a></h2>
+<section id="momentumpro-erp">
+<h3>MomentumPro ERP<a class="headerlink" href="#momentumpro-erp" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Syncs production orders automatically</p></li>
+<li><p>Updates status in real-time</p></li>
+<li><p>Retrieves order details</p></li>
+<li><p>Tracks material usage</p></li>
+<li><p>Updates inventory</p></li>
+</ul>
+</section>
+<section id="label-printing">
+<h3>Label Printing<a class="headerlink" href="#label-printing" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Generates production labels</p></li>
+<li><p>Prints to configured printers</p></li>
+<li><p>Tracks print history</p></li>
+<li><p>Supports batch printing</p></li>
+</ul>
+</section>
+<section id="inventory-system">
+<h3>Inventory System<a class="headerlink" href="#inventory-system" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Links to material requirements</p></li>
+<li><p>Tracks component usage</p></li>
+<li><p>Updates stock levels</p></li>
+<li><p>Manages work-in-progress</p></li>
+</ul>
+</section>
+</section>
+<section id="reporting">
+<h2>Reporting<a class="headerlink" href="#reporting" title="Link to this heading"></a></h2>
+<section id="available-reports">
+<h3>Available Reports<a class="headerlink" href="#available-reports" title="Link to this heading"></a></h3>
+<p><strong>Production Summary</strong>:</p>
+<ul class="simple">
+<li><p>Orders by category</p></li>
+<li><p>Open vs closed orders</p></li>
+<li><p>Production volume</p></li>
+<li><p>Completion rates</p></li>
+</ul>
+<p><strong>Category Performance</strong>:</p>
+<ul class="simple">
+<li><p>Orders per category</p></li>
+<li><p>Average completion time</p></li>
+<li><p>Efficiency metrics</p></li>
+<li><p>Trend analysis</p></li>
+</ul>
+<p><strong>Daily Production Report</strong>:</p>
+<ul class="simple">
+<li><p>Orders created today</p></li>
+<li><p>Orders completed today</p></li>
+<li><p>Orders finalised today</p></li>
+<li><p>Outstanding orders</p></li>
+</ul>
+</section>
+<section id="exporting-data">
+<h3>Exporting Data<a class="headerlink" href="#exporting-data" title="Link to this heading"></a></h3>
+<p>Export options:</p>
+<ul class="simple">
+<li><p><strong>Excel</strong> - Formatted spreadsheet</p></li>
+<li><p><strong>CSV</strong> - Raw data</p></li>
+<li><p><strong>PDF</strong> - Formatted report</p></li>
+</ul>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<section id="daily-monitoring">
+<h3>Daily Monitoring<a class="headerlink" href="#daily-monitoring" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Review open orders</strong> - Check status of active orders</p></li>
+<li><p><strong>Update completed orders</strong> - Close finished orders promptly</p></li>
+<li><p><strong>Finalise orders</strong> - Complete paperwork same day</p></li>
+<li><p><strong>Print labels</strong> - Generate labels as needed</p></li>
+<li><p><strong>Check priorities</strong> - Focus on urgent orders</p></li>
+</ol>
+</section>
+<section id="order-management">
+<h3>Order Management<a class="headerlink" href="#order-management" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Keep status current</strong> - Update status regularly</p></li>
+<li><p><strong>Document issues</strong> - Note any problems</p></li>
+<li><p><strong>Communicate delays</strong> - Alert team to delays</p></li>
+<li><p><strong>Track materials</strong> - Ensure materials available</p></li>
+<li><p><strong>Quality checks</strong> - Verify before closing</p></li>
+</ol>
+</section>
+<section id="id1">
+<h3>Label Printing<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Print at start</strong> - Generate labels when starting production</p></li>
+<li><p><strong>Use bag splits</strong> - For large quantities</p></li>
+<li><p><strong>Verify details</strong> - Check label accuracy</p></li>
+<li><p><strong>Reprint if needed</strong> - Don’t use damaged labels</p></li>
+<li><p><strong>Track prints</strong> - Monitor label usage</p></li>
+</ol>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="order-not-appearing">
+<h3>Order Not Appearing<a class="headerlink" href="#order-not-appearing" title="Link to this heading"></a></h3>
+<p>If order doesn’t appear:</p>
+<ol class="arabic simple">
+<li><p>Check category filter</p></li>
+<li><p>Verify status filter</p></li>
+<li><p>Check date range</p></li>
+<li><p>Ensure order exists in MomentumPro</p></li>
+<li><p>Wait for next sync cycle (30 minutes)</p></li>
+<li><p>Contact admin if issue persists</p></li>
+</ol>
+</section>
+<section id="cannot-close-order">
+<h3>Cannot Close Order<a class="headerlink" href="#cannot-close-order" title="Link to this heading"></a></h3>
+<p>If unable to close order:</p>
+<ol class="arabic simple">
+<li><p>Verify order is open</p></li>
+<li><p>Check user permissions</p></li>
+<li><p>Ensure all requirements met</p></li>
+<li><p>Try refreshing page</p></li>
+<li><p>Contact admin for assistance</p></li>
+</ol>
+</section>
+<section id="label-won-t-print">
+<h3>Label Won’t Print<a class="headerlink" href="#label-won-t-print" title="Link to this heading"></a></h3>
+<p>If label doesn’t print:</p>
+<ol class="arabic simple">
+<li><p>Check printer status</p></li>
+<li><p>Verify printer selection</p></li>
+<li><p>Check print queue</p></li>
+<li><p>Ensure printer has supplies</p></li>
+<li><p>Try different printer</p></li>
+<li><p>See <a class="reference internal" href="label-printing.html"><span class="std std-doc">Label Printing</span></a> troubleshooting</p></li>
+</ol>
+</section>
+<section id="incorrect-order-details">
+<h3>Incorrect Order Details<a class="headerlink" href="#incorrect-order-details" title="Link to this heading"></a></h3>
+<p>If order details are wrong:</p>
+<ol class="arabic simple">
+<li><p>Verify in MomentumPro</p></li>
+<li><p>Wait for next sync</p></li>
+<li><p>Refresh page</p></li>
+<li><p>Report discrepancy to admin</p></li>
+<li><p>Do not modify in WMS (read-only)</p></li>
+</ol>
+</section>
+</section>
+<section id="keyboard-shortcuts">
+<h2>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Ctrl + F</strong> - Focus search box</p></li>
+<li><p><strong>F5</strong> - Refresh order list</p></li>
+<li><p><strong>Esc</strong> - Close order details</p></li>
+</ul>
+</section>
+<section id="related-features">
+<h2>Related Features<a class="headerlink" href="#related-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="label-printing.html"><span class="std std-doc">Label Printing</span></a> - Production label printing</p></li>
+<li><p><a class="reference internal" href="order-management.html"><span class="std std-doc">Order Monitoring</span></a> - Sales order tracking</p></li>
+<li><p><a class="reference internal" href="inventory-management.html"><span class="std std-doc">Inventory Management</span></a> - Material tracking</p></li>
+<li><p><a class="reference internal" href="#kpi-tracking.md"><span class="xref myst">KPI Tracking</span></a> - Production metrics</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MHS (Momentum Hydraulics &amp; Seals).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

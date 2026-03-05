@@ -1,0 +1,470 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Order Board &mdash; MHS Warehouse Management System 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MHS Warehouse Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Order Board</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#divisions">Divisions</a></li>
+<li><a class="reference internal" href="#adding-items-to-the-order-board">Adding Items to the Order Board</a><ul>
+<li><a class="reference internal" href="#basic-item-entry">Basic Item Entry</a></li>
+<li><a class="reference internal" href="#advanced-options">Advanced Options</a></li>
+<li><a class="reference internal" href="#automatic-features">Automatic Features</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#managing-order-board-items">Managing Order Board Items</a><ul>
+<li><a class="reference internal" href="#viewing-items">Viewing Items</a></li>
+<li><a class="reference internal" href="#item-actions">Item Actions</a></li>
+<li><a class="reference internal" href="#filtering-and-search">Filtering and Search</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#purchase-order-generation">Purchase Order Generation</a><ul>
+<li><a class="reference internal" href="#creating-purchase-orders">Creating Purchase Orders</a></li>
+<li><a class="reference internal" href="#export-options">Export Options</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#supplier-integration">Supplier Integration</a><ul>
+<li><a class="reference internal" href="#automatic-pricing">Automatic Pricing</a></li>
+<li><a class="reference internal" href="#supported-suppliers">Supported Suppliers</a></li>
+<li><a class="reference internal" href="#rfq-request-for-quote-management">RFQ (Request for Quote) Management</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#purchase-order-status-tracking">Purchase Order Status Tracking</a><ul>
+<li><a class="reference internal" href="#status-indicators">Status Indicators</a></li>
+<li><a class="reference internal" href="#po-status-checking">PO Status Checking</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sales-order-integration-seals-division">Sales Order Integration (Seals Division)</a></li>
+<li><a class="reference internal" href="#history-and-audit-trail">History and Audit Trail</a><ul>
+<li><a class="reference internal" href="#item-history">Item History</a></li>
+<li><a class="reference internal" href="#export-history">Export History</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#best-practices">Best Practices</a><ul>
+<li><a class="reference internal" href="#adding-items">Adding Items</a></li>
+<li><a class="reference internal" href="#managing-the-board">Managing the Board</a></li>
+<li><a class="reference internal" href="#collaboration">Collaboration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#description-not-found">Description Not Found</a></li>
+<li><a class="reference internal" href="#pricing-not-available">Pricing Not Available</a></li>
+<li><a class="reference internal" href="#item-won-t-delete">Item Won’t Delete</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
+<li><a class="reference internal" href="#related-features">Related Features</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MHS Warehouse Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Order Board</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/order-board.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="order-board">
+<h1>Order Board<a class="headerlink" href="#order-board" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Order Board is a collaborative procurement management tool that allows teams to track parts that need to be ordered across different divisions. It provides real-time updates, automatic part description lookup, pricing information, and purchase order generation capabilities.</p>
+</section>
+<section id="divisions">
+<h2>Divisions<a class="headerlink" href="#divisions" title="Link to this heading"></a></h2>
+<p>The Order Board is organized into four divisions:</p>
+<ul class="simple">
+<li><p><strong>Hydraulics</strong> - Hydraulic components and parts</p></li>
+<li><p><strong>Seals</strong> - Sealing products and components</p></li>
+<li><p><strong>Filtration</strong> - Filtration equipment and supplies</p></li>
+<li><p><strong>Projects</strong> - Special project-related items</p></li>
+</ul>
+</section>
+<section id="adding-items-to-the-order-board">
+<h2>Adding Items to the Order Board<a class="headerlink" href="#adding-items-to-the-order-board" title="Link to this heading"></a></h2>
+<section id="basic-item-entry">
+<h3>Basic Item Entry<a class="headerlink" href="#basic-item-entry" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Navigate to <strong>Order Board</strong> from the sidebar</p></li>
+<li><p>Select the appropriate division tab</p></li>
+<li><p>Click <strong>Add Item</strong> button</p></li>
+<li><p>Fill in the required fields:</p>
+<ul class="simple">
+<li><p><strong>Part Number</strong> - The manufacturer or supplier part number</p></li>
+<li><p><strong>Quantity</strong> - Number of units needed</p></li>
+<li><p><strong>Freight Type</strong> - Select from dropdown (Standard, Express, etc.)</p></li>
+<li><p><strong>Notes</strong> - Optional notes about the item</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="advanced-options">
+<h3>Advanced Options<a class="headerlink" href="#advanced-options" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Description</strong> - Manually enter description (if left blank, system will auto-lookup)</p></li>
+<li><p><strong>Supplier</strong> - Specify preferred supplier</p></li>
+<li><p><strong>Branches</strong> - Check if item is for branch locations</p></li>
+<li><p><strong>ConsAir</strong> - Check if item is for ConsAir division</p></li>
+<li><p><strong>Stock Item</strong> - Check if this is a stock replenishment</p></li>
+<li><p><strong>Required Next Day</strong> - Mark as urgent for next-day delivery</p></li>
+<li><p><strong>Letter of Conformity</strong> - Check if certification is required</p></li>
+</ul>
+</section>
+<section id="automatic-features">
+<h3>Automatic Features<a class="headerlink" href="#automatic-features" title="Link to this heading"></a></h3>
+<p>When you add an item:</p>
+<ul class="simple">
+<li><p>System automatically looks up part description from MomentumPro</p></li>
+<li><p>Base pricing is retrieved (where available)</p></li>
+<li><p>Product images are fetched for Hydraulics items</p></li>
+<li><p>Part weight is calculated for Hydraulics items</p></li>
+<li><p>Sales order associations are tracked for Seals items</p></li>
+</ul>
+</section>
+</section>
+<section id="managing-order-board-items">
+<h2>Managing Order Board Items<a class="headerlink" href="#managing-order-board-items" title="Link to this heading"></a></h2>
+<section id="viewing-items">
+<h3>Viewing Items<a class="headerlink" href="#viewing-items" title="Link to this heading"></a></h3>
+<p>Each item displays:</p>
+<ul class="simple">
+<li><p>Part number and description</p></li>
+<li><p>Quantity and unit of measure</p></li>
+<li><p>Supplier information</p></li>
+<li><p>Base price (if available)</p></li>
+<li><p>Freight type</p></li>
+<li><p>Special flags (Branches, ConsAir, Stock, etc.)</p></li>
+<li><p>Added by and date</p></li>
+<li><p>Last updated information</p></li>
+<li><p>Order status</p></li>
+</ul>
+</section>
+<section id="item-actions">
+<h3>Item Actions<a class="headerlink" href="#item-actions" title="Link to this heading"></a></h3>
+<p><strong>Edit Item</strong></p>
+<ul class="simple">
+<li><p>Click the edit icon on any item</p></li>
+<li><p>Modify quantity, notes, or other fields</p></li>
+<li><p>Changes are tracked in history</p></li>
+</ul>
+<p><strong>Delete Item</strong></p>
+<ul class="simple">
+<li><p>Click the delete icon</p></li>
+<li><p>Confirm deletion</p></li>
+<li><p>Item is removed from active board</p></li>
+</ul>
+<p><strong>Mark as Ordered</strong></p>
+<ul class="simple">
+<li><p>Click “Mark as Ordered” button</p></li>
+<li><p>Item moves to ordered status</p></li>
+<li><p>Timestamp and user are recorded</p></li>
+</ul>
+<p><strong>Split Item</strong></p>
+<ul class="simple">
+<li><p>For items with multiple quantities</p></li>
+<li><p>Split into separate line items</p></li>
+<li><p>Useful for partial ordering</p></li>
+</ul>
+</section>
+<section id="filtering-and-search">
+<h3>Filtering and Search<a class="headerlink" href="#filtering-and-search" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Search</strong> - Search by part number or description</p></li>
+<li><p><strong>Status Filter</strong> - Show active, ordered, or all items</p></li>
+<li><p><strong>Supplier Filter</strong> - Filter by specific supplier</p></li>
+<li><p><strong>Sort Options</strong> - Sort by date, part number, or supplier</p></li>
+</ul>
+</section>
+</section>
+<section id="purchase-order-generation">
+<h2>Purchase Order Generation<a class="headerlink" href="#purchase-order-generation" title="Link to this heading"></a></h2>
+<section id="creating-purchase-orders">
+<h3>Creating Purchase Orders<a class="headerlink" href="#creating-purchase-orders" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>Select items to order (checkbox selection)</p></li>
+<li><p>Click <strong>Generate PO</strong> button</p></li>
+<li><p>System groups items by supplier</p></li>
+<li><p>Review generated purchase order</p></li>
+<li><p>Export to Excel or XML format</p></li>
+</ol>
+</section>
+<section id="export-options">
+<h3>Export Options<a class="headerlink" href="#export-options" title="Link to this heading"></a></h3>
+<p><strong>Excel Export</strong></p>
+<ul class="simple">
+<li><p>Formatted spreadsheet with all item details</p></li>
+<li><p>Includes pricing, quantities, and notes</p></li>
+<li><p>Ready for supplier submission</p></li>
+</ul>
+<p><strong>XML Export</strong></p>
+<ul class="simple">
+<li><p>Automated format for supplier systems</p></li>
+<li><p>Includes all required fields</p></li>
+<li><p>Stored in S3 for supplier access</p></li>
+</ul>
+<p><strong>CSV Download</strong></p>
+<ul class="simple">
+<li><p>Simple comma-separated format</p></li>
+<li><p>Includes all visible columns</p></li>
+<li><p>Useful for data analysis</p></li>
+</ul>
+</section>
+</section>
+<section id="supplier-integration">
+<h2>Supplier Integration<a class="headerlink" href="#supplier-integration" title="Link to this heading"></a></h2>
+<section id="automatic-pricing">
+<h3>Automatic Pricing<a class="headerlink" href="#automatic-pricing" title="Link to this heading"></a></h3>
+<p>For supported suppliers, the system automatically:</p>
+<ul class="simple">
+<li><p>Fetches current pricing</p></li>
+<li><p>Displays price breaks</p></li>
+<li><p>Calculates extended totals</p></li>
+<li><p>Shows availability status</p></li>
+</ul>
+</section>
+<section id="supported-suppliers">
+<h3>Supported Suppliers<a class="headerlink" href="#supported-suppliers" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>HSA</strong> - Hydraulic Supplies Australia</p></li>
+<li><p><strong>Stauff</strong> - Automated PO export to S3</p></li>
+<li><p>Additional suppliers configured in admin settings</p></li>
+</ul>
+</section>
+<section id="rfq-request-for-quote-management">
+<h3>RFQ (Request for Quote) Management<a class="headerlink" href="#rfq-request-for-quote-management" title="Link to this heading"></a></h3>
+<p>For items without pricing:</p>
+<ol class="arabic simple">
+<li><p>Select items needing quotes</p></li>
+<li><p>Click <strong>Send RFQ</strong> button</p></li>
+<li><p>System generates email to supplier</p></li>
+<li><p>Tracks RFQ history</p></li>
+<li><p>Updates when quotes received</p></li>
+</ol>
+</section>
+</section>
+<section id="purchase-order-status-tracking">
+<h2>Purchase Order Status Tracking<a class="headerlink" href="#purchase-order-status-tracking" title="Link to this heading"></a></h2>
+<section id="status-indicators">
+<h3>Status Indicators<a class="headerlink" href="#status-indicators" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Pending</strong> - Item added, not yet ordered</p></li>
+<li><p><strong>Ordered</strong> - Purchase order sent to supplier</p></li>
+<li><p><strong>Received</strong> - Item received (linked to GRN)</p></li>
+<li><p><strong>Cancelled</strong> - Order cancelled</p></li>
+</ul>
+</section>
+<section id="po-status-checking">
+<h3>PO Status Checking<a class="headerlink" href="#po-status-checking" title="Link to this heading"></a></h3>
+<p>The system automatically:</p>
+<ul class="simple">
+<li><p>Checks PO status with MomentumPro API</p></li>
+<li><p>Updates status in real-time</p></li>
+<li><p>Notifies users of status changes</p></li>
+<li><p>Links to GRN when items received</p></li>
+</ul>
+</section>
+</section>
+<section id="sales-order-integration-seals-division">
+<h2>Sales Order Integration (Seals Division)<a class="headerlink" href="#sales-order-integration-seals-division" title="Link to this heading"></a></h2>
+<p>For Seals division items:</p>
+<ul class="simple">
+<li><p>System checks for related sales orders</p></li>
+<li><p>Displays customer order numbers</p></li>
+<li><p>Shows urgency status</p></li>
+<li><p>Links to Order Monitoring for details</p></li>
+</ul>
+</section>
+<section id="history-and-audit-trail">
+<h2>History and Audit Trail<a class="headerlink" href="#history-and-audit-trail" title="Link to this heading"></a></h2>
+<section id="item-history">
+<h3>Item History<a class="headerlink" href="#item-history" title="Link to this heading"></a></h3>
+<p>View complete history of each item:</p>
+<ul class="simple">
+<li><p>When added and by whom</p></li>
+<li><p>All modifications made</p></li>
+<li><p>When ordered and by whom</p></li>
+<li><p>Export history</p></li>
+<li><p>Status changes</p></li>
+</ul>
+</section>
+<section id="export-history">
+<h3>Export History<a class="headerlink" href="#export-history" title="Link to this heading"></a></h3>
+<p>Track all purchase order exports:</p>
+<ul class="simple">
+<li><p>Export date and time</p></li>
+<li><p>User who exported</p></li>
+<li><p>Items included</p></li>
+<li><p>File format</p></li>
+<li><p>Download link</p></li>
+</ul>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<section id="adding-items">
+<h3>Adding Items<a class="headerlink" href="#adding-items" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Use correct part numbers</strong> - Verify part numbers before entry</p></li>
+<li><p><strong>Add notes</strong> - Include relevant information for purchasing</p></li>
+<li><p><strong>Check for duplicates</strong> - Search before adding new items</p></li>
+<li><p><strong>Select correct division</strong> - Ensure item is in appropriate division</p></li>
+<li><p><strong>Mark urgency</strong> - Use “Required Next Day” for urgent items</p></li>
+</ol>
+</section>
+<section id="managing-the-board">
+<h3>Managing the Board<a class="headerlink" href="#managing-the-board" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Regular cleanup</strong> - Mark items as ordered promptly</p></li>
+<li><p><strong>Update quantities</strong> - Adjust quantities as requirements change</p></li>
+<li><p><strong>Consolidate orders</strong> - Group items by supplier for efficiency</p></li>
+<li><p><strong>Track status</strong> - Monitor PO status for timely follow-up</p></li>
+<li><p><strong>Review history</strong> - Check history for recurring items</p></li>
+</ol>
+</section>
+<section id="collaboration">
+<h3>Collaboration<a class="headerlink" href="#collaboration" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p><strong>Use notes effectively</strong> - Communicate requirements clearly</p></li>
+<li><p><strong>Check before ordering</strong> - Verify items haven’t been ordered</p></li>
+<li><p><strong>Update status</strong> - Keep board current for team visibility</p></li>
+<li><p><strong>Coordinate with team</strong> - Discuss large orders before placing</p></li>
+</ol>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="description-not-found">
+<h3>Description Not Found<a class="headerlink" href="#description-not-found" title="Link to this heading"></a></h3>
+<p>If automatic lookup fails:</p>
+<ul class="simple">
+<li><p>Manually enter description</p></li>
+<li><p>Verify part number is correct</p></li>
+<li><p>Check if part exists in MomentumPro</p></li>
+<li><p>Contact admin if persistent issues</p></li>
+</ul>
+</section>
+<section id="pricing-not-available">
+<h3>Pricing Not Available<a class="headerlink" href="#pricing-not-available" title="Link to this heading"></a></h3>
+<p>If pricing doesn’t display:</p>
+<ul class="simple">
+<li><p>Check supplier configuration</p></li>
+<li><p>Verify part number format</p></li>
+<li><p>Request manual quote</p></li>
+<li><p>Use RFQ feature</p></li>
+</ul>
+</section>
+<section id="item-won-t-delete">
+<h3>Item Won’t Delete<a class="headerlink" href="#item-won-t-delete" title="Link to this heading"></a></h3>
+<p>If you cannot delete an item:</p>
+<ul class="simple">
+<li><p>Check if item is already ordered</p></li>
+<li><p>Verify you have permissions</p></li>
+<li><p>Contact admin for assistance</p></li>
+</ul>
+</section>
+</section>
+<section id="keyboard-shortcuts">
+<h2>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Ctrl + F</strong> - Focus search box</p></li>
+<li><p><strong>Ctrl + N</strong> - Add new item (when on Order Board)</p></li>
+<li><p><strong>Esc</strong> - Close modal dialogs</p></li>
+</ul>
+</section>
+<section id="related-features">
+<h2>Related Features<a class="headerlink" href="#related-features" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="order-management.html"><span class="std std-doc">Order Monitoring</span></a> - Track sales orders</p></li>
+<li><p><a class="reference internal" href="#grn-monitoring.md"><span class="xref myst">GRN Monitoring</span></a> - Track goods receipts</p></li>
+<li><p><a class="reference internal" href="#procurement.md"><span class="xref myst">Procurement</span></a> - Decision support tool</p></li>
+<li><p><a class="reference internal" href="administration.html"><span class="std std-doc">Admin Settings</span></a> - Configure suppliers and settings</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, MHS (Momentum Hydraulics &amp; Seals).</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
