@@ -5,7 +5,7 @@ version: 2
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
-  configuration: docs/conf.py
+  configuration: conf.py
   fail_on_warning: false
 
 # Build documentation with MkDocs (alternative to Sphinx)
@@ -20,9 +20,8 @@ formats:
 
 # Python requirements for building docs
 python:
-  version: "3.11"
   install:
-    - requirements: docs/requirements.txt
+    - requirements: requirements.txt
 
 # Build settings
 build:
