@@ -8,6 +8,16 @@ sphinx:
   configuration: conf.py
   fail_on_warning: false
 
+# Specify build output directory
+build:
+  os: ubuntu-22.04
+  tools:
+    python: "3.11"
+  jobs:
+    post_build:
+      - mkdir -p $READTHEDOCS_OUTPUT/html/
+      - cp -r _build/html/* $READTHEDOCS_OUTPUT/html/ || true
+
 # Build documentation with MkDocs (alternative to Sphinx)
 # Uncomment if you prefer MkDocs over Sphinx
 # mkdocs:
@@ -23,8 +33,3 @@ python:
   install:
     - requirements: requirements.txt
 
-# Build settings
-build:
-  os: ubuntu-22.04
-  tools:
-    python: "3.11"

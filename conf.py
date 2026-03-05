@@ -1,6 +1,16 @@
 # Configuration file for the Sphinx documentation builder.
 # For ReadTheDocs deployment
 
+import os
+
+# -- ReadTheDocs configuration -----------------------------------------------
+# Set output directory for ReadTheDocs builds
+if os.environ.get('READTHEDOCS') == 'True':
+    import os
+    html_context = {
+        'READTHEDOCS': True,
+    }
+
 # -- Project information -----------------------------------------------------
 
 project = 'MHS Warehouse Management System'
